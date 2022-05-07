@@ -1,0 +1,314 @@
+/* 此处设置主页面样式 */
+.main {
+    display: none;
+}
+.main-center {
+    position: relative;
+    width: 425px;
+    margin: 0 auto;
+}
+
+
+/* --------------------------------------------------------- */
+/* 设置顶部选择框样式 */
+.main-top {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+
+    width: 100%;
+    height: 70px;
+    background-color: white;
+    border-bottom: 1px solid #eeeeee;
+    z-index: 10;
+}
+
+/* ------------------------------- */
+/* 最顶部的+和首页和搜索 */
+.main-top-top {
+    position: relative;
+
+    width: 425px;
+    height: 55%;
+    margin: 0 auto;
+}
+
+
+/* 左侧+按钮 */
+.main-article {
+    width: 44px;
+    height: 100%;
+
+    line-height: 38px;
+}
+.main-top-top .iconfont {
+    font-size: 20px;
+}
+
+
+/* 中间首页标题 */
+.main-title {
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%,0);
+
+    font-size: 20px;
+}
+
+/* 右侧搜索按钮 */
+.main-search {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+
+    width: 44px;
+    height: 100%;
+
+    text-align: right;
+    line-height: 38px;
+}
+
+
+/* ------------------------------- */
+/* 下方不同类型的标签页 */
+.main-top-tabs {
+    display: flex;
+    justify-content: space-between;
+
+
+    width: 425px;
+    height: 45%;
+    margin: 0 auto;
+}
+
+.main-top-tab {
+    width: 36px;
+    height: 90%;
+
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.3s all;
+}
+
+.tab-current {
+    color: #a062d4;
+    border-bottom: 3px solid #a062d4;
+}
+
+
+
+
+
+/* --------------------------------------------------------- */
+/* 设置底部切换tab栏 */
+.main-bottom {
+    display: none;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+
+    height: 50px;
+    width: 100%;
+    background-color: white;
+    transition: 0.3s all;
+    z-index: 10;
+}
+
+.main-bottom-box {
+    display: flex;
+    justify-content: space-between;
+
+    width: 350px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.main-bottom-tab {
+    position: relative;
+    width: 100px;
+    height: 100%;
+}
+
+.main-bottom-tab .iconfont {
+    position: absolute;
+    left: 32px;
+
+    color: #999999;
+    font-size: 26px;
+}
+.main-tab-word {
+    position: absolute;
+    left: 16px;
+    top: 25px;
+
+    color: #999999;
+}
+
+/* 设置点击时变化的样式 */
+.main-tab-current {
+    color: #a062d4;
+}
+.main-tab-current .iconfont {
+    color: #a062d4;
+}
+
+
+
+/* ------------------------------------------------------------------ */
+/* 此处设置推荐显示框 */
+/* .main-renderbox {
+    display: flex;
+    justify-content: space-between;
+
+    top: 70px;
+
+    width: 100%;
+    margin-top: 71px;
+    margin-bottom: 55px;
+    
+} */
+
+/* 设置下面两列 */
+.main-column-left,
+.main-column-right {
+    width: 48%;
+    margin-top: 71px;
+    margin-bottom: 55px;
+}
+.main-column-left {
+    float: left;
+}
+.main-column-right {
+    float: right;
+}
+
+.main-column-box {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    /* height: 280px; */
+    margin-top: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px 0px #999;
+}
+.main-column-box img {
+    position: relative;
+    width: 100%;
+    margin-bottom: -12px;
+}
+
+/* 设置底部盒子 */
+.main-column-bottom {
+    width: 100%;
+    height: 75px;
+    border-radius: 10px;
+
+    background-color: white;
+}
+
+.main-column-boxtitle {
+    overflow: hidden;
+    position: absolute;
+    bottom: 38px;
+    left: 7px;
+
+    width: 96%;
+    height: 23px;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.main-column-avator {
+    overflow: hidden;
+    position: absolute;
+    bottom: 7px;
+    left: 7px;
+
+
+    width: 25px;
+    height: 25px;
+    border-radius: 12.5px;
+}
+.main-column-avator img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 25px;
+    height: 25px;
+}
+
+.main-column-nickname {
+    position: absolute;
+    bottom: 9px;
+    left: 41px;
+
+    width: 58%;
+    height: 20px;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.main-column-like {
+    position: absolute;
+    bottom: 9px;
+    right: 8px;
+
+}
+.main-column-like>div {
+    float: left;
+}
+.heart {
+    margin-top: 2px;
+}
+
+
+/* 设置推荐显示框 */
+.main-recommend-column-left,
+.main-recommend-column-right {
+    display: block;
+}
+
+/* 设置旅行显示框 */
+.main-travel-column-left,
+.main-travel-column-right {
+    display: none;
+}
+
+/* 设置美食显示框 */
+.main-food-column-left,
+.main-food-column-right {
+    display: none;
+}
+
+/* 设置时尚显示框 */
+.main-fashion-column-left,
+.main-fashion-column-right {
+    display: none;
+}
+
+/* 设置彩妆显示框 */
+.main-makeup-column-left,
+.main-makeup-column-right {
+    display: none;
+}
+
+/* 设置高效显示框 */
+.main-efficient-column-left,
+.main-efficient-column-right {
+    display: none;
+}
+
+/* 设置护肤显示框 */
+.main-skincare-column-left,
+.main-skincare-column-right {
+    display: none;
+}
+
+
+
+
+
+

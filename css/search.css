@@ -1,0 +1,255 @@
+/* 这是搜索页面的css */
+.search {
+    display: none;
+}
+
+
+/* 顶部返回按钮、搜索框和搜索按钮 */
+.search-TopBox {
+    position: relative;
+
+    width: 100%;
+    height: 35px;
+    margin-top: 10px;
+}
+
+/* 返回按钮 */
+.search-back {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    width: 22px;
+    height: 22px;
+}
+.search-back .iconfont {
+    font-size: 20px;
+}
+
+/* 搜索框 */
+.search-box{
+    position: absolute;
+    left: 55px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #a063d4;
+}
+.search-ipt {
+    position: absolute;
+    left: 37px;
+    top: 46%;
+    transform: translate(0,-50%);
+
+    width: 260px;
+    height: 28px;
+    border: none;
+
+    font-size: 15px;
+    outline: none;
+}
+.search-ipt::placeholder {
+    color: #999;
+    font-size: 16px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 45%;
+    transform: translate(0,-50%);
+}
+.search-box .iconfont {
+    font-size: 21px;
+    color: #999;
+}
+
+/* 搜索按钮 */
+.theSearch-Btn {
+    position: absolute;
+    right: 9px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    width: 55px;
+    height: 24px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+
+    font-size: 15px;
+    line-height: 24px;
+    text-align: center;
+}
+
+/* ------------------------------- */
+/* 下方文章，用户按钮 */
+.search-TwoBtnBox {
+    position: relative;
+    height: 40px;
+    width: 100%;
+    margin-top: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.search-articleBtn {
+    position: absolute;
+    left: 95px;
+
+    width: 40px;
+    height: 38px;
+
+    line-height: 35px;
+    font-size: 20px;
+}
+
+.search-userBtn {
+    position: absolute;
+    right: 95px;
+
+    width: 40px;
+    height: 38px;
+
+    line-height: 35px;
+    font-size: 20px;
+}
+
+.searchBtn-current {
+    color: #a063d4;
+    border-bottom: 3px solid #a063d4;
+}
+
+
+/* ------------------------------------------------------ */
+/* 设置下方搜索到的文章显示列表 */
+.main-SearchArticle-column {
+    margin-top: 0px;
+}
+.main-SearchArticle-column-left {
+    margin-left: 5px;
+}
+.main-SearchArticle-column-right {
+    margin-right: 5px;
+}
+
+/* -------------------------------------------------- */
+/* 用户的渲染列表 */
+.search-userBox {
+    width: 400px;
+    margin: 15px 15px;
+    border-top: 1px solid #eee;
+}
+
+.search-Box {
+    position: relative;
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+}
+
+/* 头像 */
+.search-avatar {
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+}
+.search-avatar img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    width: 36px;
+    height: 36px;
+}
+
+/* 昵称 */
+.search-nickname {
+    position: absolute;
+    left: 50px;
+    top: 12px;
+
+    font-size: 16px;
+}
+
+/* 简介 */
+.search-word {
+    position: absolute;
+    left: 50px;
+    top: 34px;
+
+    font-size: 13px;
+    color: #999;
+
+}
+
+/* 关注按钮 */
+.search-starBtn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    width: 75px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid #a063d4;
+
+    font-size: 15px;
+    line-height: 25px;
+    text-align: center;
+    color: #a063d4;
+    background-color: white;
+}
+
+
+
+
+
+
+
+/* ----------------------------------------------------- */
+/* 底部框 */
+.search-bottom {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 80px;
+
+    color: #999;
+    font-size: 13px;
+}
+.search-bottom>p {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

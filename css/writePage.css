@@ -1,0 +1,260 @@
+/* 此处设置写文章页面 */
+.writePage {
+    display: none;
+}
+.writePage-center {
+    width: 425px;
+}
+
+/* 设置顶部返回按钮 */
+.writePage-back {
+    height: 35px;
+    width: 25px;
+
+    line-height: 35px;
+}
+.writePage-back .iconfont {
+    font-size: 15px;
+}
+
+/* 设置添加图片按钮 */
+.writePage-addPic {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+
+    width: 390px;
+    margin: 25px 0 25px 0px;
+}
+
+.addPicBtn {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    margin-bottom: 7px;
+    margin-right: 7px;
+    border-radius: 5px;
+    
+    text-align: center;
+    line-height: 95px;
+    background-color: #f5f5f5;
+}
+.writePage-addPic .iconfont {
+    font-size: 35px;
+    color: #999999;
+}
+#writePage-Picfile {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    width: 90px;
+    height: 90px;
+    opacity: 0;
+}
+
+/* 图片展示 */
+.writePage-Pic {
+    overflow: hidden;
+    position: relative;
+    width: 90px;
+    height: 90px;
+    margin-bottom: 7px;
+    margin-right: 7px;
+    border-radius: 5px;
+}
+.writePage-Pic img {
+    width: 90px;
+    height: 90px;
+    z-index: 1;
+}
+.writePage-Pic .deletePic-btn {
+    position: absolute;
+    top: 0px;
+    right: -2px;
+
+    width: 15px;
+    height: 13px;
+    border-radius: 5px;
+
+    color: white;
+    background-color: black;
+    z-index: 20;
+}
+.writePage-Pic .iconfont {
+    font-size: 5px;
+}
+
+
+
+
+/* 设置标题输入框 */
+#write-form {
+    margin-left: 6px;
+}
+
+#writePage-title {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 15px;
+
+    font-size: 19px;
+    outline: none;
+}
+#writePage-title::placeholder {
+    position: absolute;
+    top: 0px;
+    font-size: 19px;
+    font-weight: 600;
+    color: #cccccc;
+}
+
+/* 设置内容文本域 */
+#writePage-content {
+    margin-top: 18px;
+    border: none;
+
+    font-size: 16px;
+    outline: none;
+}
+#writePage-content::placeholder {
+    font-size: 16px;
+    font-weight: 550;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #cccccc;
+}
+
+/* 设置添加话题Tag */
+.writePage-Tagbox {
+    width: 100%;
+    border-bottom: 1px solid #ebebeb;
+}
+.writePage-Tagbox div {
+    display: inline-block;
+
+    height: 30px;
+    width: 65px;
+    margin-bottom: 15px;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+
+    line-height: 30px;
+    text-align: center;
+}
+
+#tagword {
+    display: none;
+    width: 100%;
+    border: none;
+
+    color: #a062d4;
+    font-size: 20px;
+    text-align: left;
+    outline: none;
+}
+
+
+
+/* 设置下方提交按钮 */
+.submit-writePage {
+    position: fixed;
+    bottom: 10px;
+
+    width: 425px;
+    height: 40px;
+}
+.writePageBtn {
+    float: left;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 20px;
+
+    font-size: 16px;
+    color: white;
+    background-color: #a062d4;
+}
+
+/* 设置点击#话题后弹出的Tag添加框 */
+.addTagBox {
+    display: none;
+    overflow: hidden;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+
+    width: 340px;
+    height: 105px;
+    border-radius: 10px;
+
+    background-color: white;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+}
+
+/* 设置输入框 */
+#addTagBox-ipt {
+    width: 95%;
+    height: 20px;
+    padding: 20px 8px;
+    border: none;
+    border-bottom: 1px solid #eeeeee;
+
+    font-size: 19px;
+    outline: none;
+    background: transparent;
+}
+#addTagBox-ipt::placeholder {
+    color: #cdcdcd;
+}
+
+/* 设置下方取消和确定按钮 */
+.addTagBox div {
+    display: inline-block;
+
+    width: 167px;
+    height: 44px;
+
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #a062d4;
+}
+.addTagBox-cancle {
+    border-right: 1px solid #eeeeee;
+}
+
+
+
+/* 设置点击#话题后弹出的遮盖层 */
+.addTag-background {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, .3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

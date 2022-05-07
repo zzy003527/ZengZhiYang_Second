@@ -1,0 +1,114 @@
+/* 这是关注的人页面的css */
+.follow-person {
+    display: none;
+}
+
+
+
+/* 顶部关注的人title和返回按钮 */
+.follow-person-top {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #eee;
+
+    line-height: 40px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.follow-person-back {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+
+/* 下方渲染关注的人盒子 */
+.follow-person-Father {
+    position: relative;
+    width: 425px;
+    top: -2px;
+
+    margin: 0 auto;
+    border-bottom: 2px solid #eee;
+}
+
+
+/* 每个小盒子 */
+.follow-person-box {
+    position: relative;
+    height: 65px;
+    width: 100%;
+    margin-bottom: 15px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+/* 头像 */
+.follow-person-avatar {
+    overflow: hidden;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    width: 34px;
+    height: 34px;
+    border-radius: 17px;
+}
+.follow-person-avatar img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    width: 34px;
+    height: 34px;
+}
+
+/* 昵称 */
+.follow-person-nickname {
+    position: absolute;
+    left: 63px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* 关注按钮 */
+.follow-person-followBtn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    width: 75px;
+    height: 25px;
+    border-radius: 5px;
+
+    font-size: 15px;
+    line-height: 25px;
+    text-align: center;
+    color: white;
+    background-color: #a063d4;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

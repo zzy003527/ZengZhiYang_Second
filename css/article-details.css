@@ -1,0 +1,740 @@
+/* 文章详情页面的css */
+.article-details {
+    display: none;
+}
+.article-details-container {
+    position: relative;
+    width: 425px;
+
+    margin: 0 auto;
+
+}
+
+
+/* 顶部返回多个按钮和头像用户名的父盒子 */
+.article-details-topbox {
+    position: relative;
+    height: 35px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* 返回按钮 */
+.article-details-back {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(0,-50%);
+
+    height: 25px;
+    width: 25px;
+}
+.article-details-topbox .iconfont {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* 头像和用户名 */
+.article-details-avatarAndnickname {
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    transform: translate(0,-50%);
+
+    width: 50%;
+    height: 25px;
+}
+
+.article-details-avatar {
+    overflow: hidden;
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: 12.5px;
+}
+.article-details-avatar img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    height: 25px;
+    width: 25px;
+}
+
+.article-details-nickname {
+    position: absolute;
+    left: 40px;
+    top: 2px;
+
+    height: 25px;
+    width: 80%;
+}
+
+
+/* 关注按钮 */
+.article-details-followBtn {
+    position: absolute;
+    right: 50px;
+    top: 52%;
+    transform: translate(0,-50%);
+
+    width: 70px;
+    height: 25px;
+    border-radius: 12.5px;
+    border: 1px solid black;
+
+    /* background-color: orange; */
+    line-height: 25px;
+    text-align: center;
+}
+
+.article-details-shareBtn{
+    position: absolute;
+    right: 10px;
+    top: 62%;
+    transform: translate(0,-50%);
+
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* ------------------------------------------------------- */
+/* 轮播图部分 */
+/* 轮播图ul和小圆点ul的父盒子 */
+.article-details-rotatemapbox {
+    overflow: hidden;
+    position: absolute;
+    top: 50px;
+
+    height: 310px;
+    width: 435px;
+}
+
+
+/* 轮播图ul */
+.article-details-rotatemapul {
+    display: flex;
+    position: relative;
+
+    height: 310px;
+    width: 10000px;
+
+    transition: all 0.5s;
+}
+
+.article-details-rotatemapul li {
+    overflow: hidden;
+    width: 435px;
+    height: 310px;
+}
+.article-details-rotatemapul li img {
+    width: 435px;
+}
+
+
+
+/* 小圆点ul */
+.article-details-circleul {
+    display: flex;
+    justify-content: space-between;
+
+    position: absolute;
+    left: 50%;
+    top:  368px;
+    transform: translate(-50%,0);
+
+    height: 5px;
+    width: 110px;
+}
+
+.article-details-circleul li {
+    float: left;
+    width: 14px;
+    height: 3px;
+    border-radius: 2px;
+    border: 1px solid #999;
+}
+
+.article-details-circleul .current {
+    background-color: #ba8ce0;
+}
+
+
+/* ------------------------------------------------------- */
+/* 下方大框 */
+.article-details-bottomBox {
+    position: absolute;
+    top: 370px;
+    width: 425px;
+    left: 0px;
+
+    width: 100%;
+}
+
+
+/* 标题 */
+.article-details-title {
+    width: 425px;
+
+    font-size: 21px;
+    font-weight: 600;
+}
+
+/* 内容 */
+.article-details-content {
+    width: 425px;
+    height: 100%;
+    margin-top: 10px;
+
+    /* 让文字自动换行 */
+    word-wrap: break-word;
+    word-break: normal;
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* tag */
+.article-details-Tag {
+    margin-top: 5px;
+    margin-left: 13px;
+
+    font-size: 13px;
+    color: #a062d4;
+}
+
+/* 下方日期和不喜欢按钮的父盒子 */
+.article-details-dateAndunlike {
+    position: relative;
+    height: 60px;
+    width: 425px;
+    border-bottom: 1px solid #eee;
+}
+
+/* 日期 */
+.article-details-date {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(0,-50%);
+
+    font-size: 13px;
+    color: #999;
+}
+
+/* 不喜欢按钮 */
+.article-details-unlike {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    width: 85px;
+    height: 25px;
+    border-radius: 13px;
+    border: 1px solid black;
+
+    line-height: 25px;
+    text-align: center;
+}
+
+
+/* ------------------------------------------------------------ */
+/* 下方评论部分 */
+.article-details-commentBox {
+    position: absolute;
+    top: 520px;
+    /* top: 0px; */
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.article-details-commentNum {
+    margin-bottom: 7px;
+    font-size: 14px;
+    border-radius: 5px;
+
+    background-color: #ba8ce0;
+}
+
+/* 自身头像和点击评论框 */
+.article-details-userAvatarBox {
+    position: relative;
+    height: 30px;
+    width: 100%;
+}
+/* 头像 */
+.article-details-userAvatar {
+    overflow: hidden;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+.article-details-userAvatar img {
+    width: 30px;
+    height: 30px;
+}
+
+/* 评论 */
+.article-details-commentBtn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+
+    height: 30px;
+    width: 90%;
+    padding-left: 2px;
+    border-radius: 15px;
+
+    line-height: 30px;
+    font-size: 14px;
+    color: #aeaeae;
+    background-color: #ebebeb;
+}
+.article-details-commentBtn p {
+    margin-left: 20px;
+}
+
+/* ----------------------------------------- */
+/* 评论的父盒子 */
+.article-details-FirstCommentBoxFather {
+    position: relative;
+    width: 100%;
+
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* 一级评论 */
+.article-details-FirstCommentBox {
+    position: relative;
+    height: 75px;
+    width: 100%;
+}
+
+/* 一级评论内的头像 */
+.FirstComment-avatar {
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+
+}
+.FirstComment-avatar img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 30px;
+    height: 30px;
+}
+
+/* 昵称 */
+.FirstComment-nickname {
+    position: absolute;
+    top: 0px;
+    left: 40px;
+
+    font-size: 10px;
+    color: #999;
+}
+
+/* 评论内容 */
+.FirstComment-content {
+    position: absolute;
+    top: 21px;
+    left: 40px;
+
+    width: 80%;
+
+    font-size: 13px;
+    color: black;
+}
+
+/* 评论日期 */
+.FirstComment-date {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+
+    font-size: 10px;
+    color: #999;
+}
+
+/* 右侧点赞按钮 */
+.FirstComment-LikesBtn {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+.article-details-FirstCommentBox .iconfont {
+    font-size: 25px;
+}
+
+/* 点赞数 */
+.FirstComment-LikesNum {
+    position: absolute;
+    right: 8px;
+    top: 26px;
+
+    font-size: 14px;
+}
+
+/* 删除按钮 */
+.FirstComment-Delete {
+    position: absolute;
+    right: 40px;
+    top: 5px;
+
+    width: 30px;
+    height: 15px;
+    border-radius: 5px;
+    border: 1px solid #333;
+
+    color: #999;
+    line-height: 15px;
+    text-align: center;
+    font-size: 12px;
+    background-color: skyblue;
+}
+
+
+
+
+/* ------------------------------- */
+/* 二级评论框父盒子 */
+.article-details-SecondCommentBoxFather {
+    position: relative;
+    right: -40px;
+
+    width: 385px;
+    border-bottom: 2px solid #eee;
+}
+
+.article-details-SecondCommentBox {
+    position: relative;
+    height: 40px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* 头像 */
+.SecondComment-avatar {
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+
+}
+.SecondComment-avatar img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    width: 30px;
+    height: 30px;
+}
+
+/* 昵称 */
+.SecondComment-nickname {
+    position: absolute;
+    left: 37px;
+    top: 0px;
+
+    font-size: 10px;
+    color: #999;
+}
+
+/* 内容 */
+.SecondComment-contentBox {
+    position: absolute;
+    left: 37px;
+    top: 17px;
+
+    width: 300px;
+
+    font-size: 13px;
+}
+.SecondComment-contentBox p:nth-child(2) {
+    color: #999;
+    font-size: 10px;
+}
+.SecondComment-contentBox p {
+    display: inline-block;
+    margin-right: 9px;
+}
+
+/* 右侧点赞 */
+.SecondComment-LikesBtn {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+.article-details-SecondCommentBox .iconfont {
+    font-size: 20px;
+}
+
+/* 点赞数 */
+.SecondComment-LikesNum {
+    position: absolute;
+    right: 6px;
+    top: 16px;
+
+    font-size: 12px;
+}
+
+/* 删除按钮 */
+.SecondComment-Delete {
+    position: absolute;
+    right: 40px;
+    top: 2px;
+
+    width: 30px;
+    height: 15px;
+    border-radius: 5px;
+    border: 1px solid #333;
+
+    color: #999;
+    line-height: 15px;
+    text-align: center;
+    font-size: 12px;
+    background-color: skyblue;
+}
+
+
+
+/* 底部的END */
+.article-details-CommentEnd {
+    height: 110px;
+    width: 100%;
+    margin-bottom: 20px;
+
+    text-align: center;
+    line-height: 110px;
+}
+
+
+
+
+/* -------------------------------------------- */
+/* 底部固定评论框 */
+.article-details-commentFixedBox {
+    display: block;
+    position: fixed;
+    bottom: 0px;
+
+    height: 50px;
+    width: 439px;
+    margin-left: -2px;
+
+    background-color: white;
+    z-index: 20;
+}
+
+/* 左侧灰色评论框 */
+.article-details-commentFixedBtn {
+    position: absolute;
+    top: 8px;
+    left: 7px;
+
+    width: 280px;
+    height: 35px;
+    margin-bottom: 5px;
+    border-radius: 17px;
+
+    line-height: 35px;
+    color: #aeaeae;
+    background-color: #ebebeb;
+}
+.article-details-commentFixedBtn p {
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+/* 点赞 */
+.article-details-FixedBoxLikesBox {
+    position: absolute;
+    top: 8px;
+    right: 97px;
+
+    width: 40px;
+    height: 35px;
+}
+.article-details-FixedBoxLikesBox .iconfont {
+    font-size: 28px;
+}
+.article-details-Likes {
+    position: absolute;
+    top: 2px;
+}
+.article-details-LikeNum {
+    position: absolute;
+    left: 28px;
+    top: 6px;
+}
+
+/* 收藏 */
+.article-details-FixedBoxCollectBox {
+    position: absolute;
+    top: 8px;
+    right: 52px;
+
+    width: 40px;
+    height: 35px;
+}
+.article-details-FixedBoxCollectBox .iconfont {
+    font-size: 28px;
+}
+.article-details-Collect {
+    position: absolute;
+    top: 2px;
+}
+.article-details-CollectNum {
+    position: absolute;
+    left: 28px;
+    top: 6px;
+}
+
+/* 评论 */
+.article-details-FixedBoxCommentBox {
+    position: absolute;
+    top: 8px;
+    right: 7px;
+
+    width: 40px;
+    height: 35px;
+}
+.article-details-FixedBoxCommentBox .iconfont {
+    font-size: 28px;
+}
+.article-details-Comment {
+    position: absolute;
+    top: 2px;
+}
+.article-details-CommentNum {
+    position: absolute;
+    left: 28px;
+    top: 6px;
+}
+
+
+/* -------------------------------- */
+/* 点击评论框后出现的框 */
+.article-details-commentFixedIptBox {
+    display: none;
+    position: fixed;
+    bottom: 0px;
+
+    height: 50px;
+    width: 440px;
+    margin-left: -2px;
+
+    background-color: white;
+    z-index: 20;
+}
+
+.article-details-greyBox {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+
+    /* 点击变350 */
+    /* width: 350px; */
+    width: 425px;
+    height: 35px;
+    margin-bottom: 5px;
+    border-radius: 17px;
+
+    line-height: 35px;
+    color: #aeaeae;
+    background-color: #ebebeb;
+    transition: 0.5s;
+    z-index: 12;
+}
+
+.article-details-commentIpt {
+    position: absolute;
+    left: 18px;
+
+    width: 250px;
+    height: 35px;
+    border: none;
+
+
+    font-size: 17px;
+    line-height: 35px;
+    outline: none;
+    background-color: transparent;
+}
+.article-details-commentIpt::placeholder {
+    font-size: 16px;
+    color: #999;
+}
+
+/* 两个icon */
+.article-details-iconOne {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+.article-details-iconTwo {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+.article-details-greyBox .iconfont:nth-child(3) {
+    font-size: 27px;
+}
+.article-details-greyBox .iconfont:nth-child(2) {
+    font-size: 24px;
+}
+
+
+
+/* 点击评论后出现的发送按钮 */
+.article-details-commentSend {
+    display: none;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    width: 55px;
+    height: 30px;
+
+    text-align: center;
+    line-height: 30px;
+    border-radius: 15px;
+    color: white;
+    background-color: rgba(12, 132, 253, 0.521);
+    transition: 0.5s;
+}
+
+
+/* 点击评论后出现的遮盖层 */
+.Comment-background {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, .3);
+    z-index: 10;
+}
+
+
+

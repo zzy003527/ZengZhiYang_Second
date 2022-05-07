@@ -1,0 +1,143 @@
+/* 收到的评论和@页面的css */
+.receiveReview {
+    display: none;
+}
+
+
+/* --------------------------------- */
+/* 顶部返回按钮和title */
+.receiveReview-topBox {
+    position: relative;
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* 返回按钮 */
+.receiveReview-back {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+.receiveReview-topBox .iconfont {
+    color: #333;
+    font-size: 20px;
+}
+
+/* title */
+.receiveReview-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 18px;
+}
+
+
+/* --------------------------------------- */
+/* 下方渲染盒子 */
+.receiveReview-Father {
+    position: relative;
+    width: 410px;
+    margin: 0 9px;
+}
+
+.receiveReview-Box {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #eee;
+}
+
+/* 头像 */
+.receiveReview-avatar {
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    width: 34px;
+    height: 34px;
+    border-radius: 17px;
+}
+.receiveReview-avatar img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    width: 34px;
+    height: 34px;
+}
+
+/* 昵称 */
+.receiveReview-nickname {
+    position: absolute;
+    left: 45px;
+    top: 12px;
+
+    font-size: 16px;
+}
+
+/* 文字 */
+.receiveReview-word {
+    position: absolute;
+    left: 45px;
+    top: 33px;
+
+    color: #999;
+    font-size: 13px;
+}
+
+/* 右侧图片 */
+.receiveReview-image {
+    overflow: hidden;
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    width: 45px;
+    height: 45px;
+}
+.receiveReview-image img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    width: 45px;
+    height: 45px;
+}
+
+/* 右侧进入文字详情按钮 */
+.receiveReview-detailBtn {
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+.receiveReview-Box .iconfont {
+    color: #999;
+    font-size: 28px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

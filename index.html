@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 导入自己封装的jq -->
+    <script src="./js/MyJQuery.js"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <!-- 导入icon -->
+    <link rel="stylesheet" href="./icon/iconfont.css">
+    <!-- 导入ws -->
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
+    <!-- 导入css -->
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/writePage.css">
+    <link rel="stylesheet" href="./css/person-center.css">
+    <link rel="stylesheet" href="./css/edit-data.css">
+    <link rel="stylesheet" href="./css/article-details.css">
+    <link rel="stylesheet" href="./css/follow-person.css">
+    <link rel="stylesheet" href="./css/fans-Page.css">
+    <link rel="stylesheet" href="./css/belikedAndCollected-Page.css">
+    <link rel="stylesheet" href="./css/search.css">
+    <link rel="stylesheet" href="./css/MyMessage.css">
+    <link rel="stylesheet" href="./css/receiveReview.css">
+    <link rel="stylesheet" href="./css/SendprivateMsg.css">
+    <link rel="stylesheet" href="./css/ChatPage.css">
+</head>
+<body>
+    <div class="w">
+        <!-- 登录页面模块 -->
+        <div class="login Thepage">
+            <!--  背景图片 -->
+            <img src="./img/login/loginback2.webp" alt="">
+
+            <!-- 顶部文字 -->
+            <div class="login-word">欢迎来到小红书</div>
+
+            <!-- 登录表单 -->
+            <div class="login-box">
+                <form action="#" method="post" id="loginform">
+                    <input type="text" placeholder="Username" id="loginName" name="UserName">
+                    <input type="password" placeholder="Password" id="loginPassword" name="PassWord">
+                    <div class="submit-login">
+                        <input type="submit" value="登录" class="loginBtn">
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+
+        <!-- --------------------------------- -->
+        <!-- 主页面模块 -->
+        <div class="main Thepage">
+            <div class="main-center">
+                <!-- 顶部选择框 -->
+                <div class="main-top">
+                    <!-- 最顶部的+和首页和搜索 -->
+                    <div class="main-top-top">
+                        <div class="main-article iconfont">&#xe727;</div>
+                        <div class="main-title">首页</div>
+                        <div class="main-search iconfont">&#xe600;</div>
+                    </div>
+                    <!-- 下方不同类型的标签页 -->
+                    <div class="main-top-tabs">
+                        <div class="main-top-tab tab-current" tab="recommend">推荐</div>
+                        <div class="main-top-tab" tab="travel">旅行</div>
+                        <div class="main-top-tab" tab="food">美食</div>
+                        <div class="main-top-tab" tab="fashion">时尚</div>
+                        <div class="main-top-tab" tab="makeup">彩妆</div>
+                        <div class="main-top-tab" tab="efficient">高效</div>
+                        <div class="main-top-tab" tab="skincare">护肤</div>
+                    </div>
+                </div>
+
+                <!-- 推荐显示框 -->
+                    <!-- 第一列 -->
+                    <div class="main-column main-recommend-column-left main-column-left main-recommend-column">
+                        <!-- <div class="main-column-box">
+                            <img src="./img/测试头像1.jpg" alt="">
+                            <div class="main-column-bottom">
+                                <div class="main-column-boxtitle">麦当劳好吃</div>
+                                <div class="main-column-avator"><img src="./img/测试头像1.jpg" alt=""></div>
+                                <div class="main-column-nickname">记阳啊</div>
+                                <div class="main-column-like"><div class="heart iconfont">&#xe8ab;</div><div class="column-likenum">2</div></div>
+                            </div>
+                        </div>
+                        <div class="main-column-box"></div>
+                        <div class="main-column-box"></div> -->
+                    </div>
+                    <!-- 第二列 -->
+                    <div class="main-column main-recommend-column-right main-column-right main-recommend-column">
+                        
+                    </div>
+
+                    <!-- -------------------------------------------- -->
+                    <!-- 旅行显示框 -->
+                    <!-- 第一列 -->
+                    <div class="main-column main-travel-column-left main-column-left main-travel-column">  </div>
+                    <!-- 第二列 -->
+                    <div class="main-column main-travel-column-right main-column-right main-travel-column"></div>
+
+                    <!-- -------------------------------------------- -->
+                    <!-- 美食显示框 -->
+                    <!-- 第一列 -->
+                    <div class="main-column main-food-column-left main-column-left main-food-column">  </div>
+                    <!-- 第二列 -->
+                    <div class="main-column main-food-column-right main-column-right main-food-column"></div>
+
+                    <!-- -------------------------------------------- -->
+                    <!-- 时尚显示框 -->
+                    <!-- 第一列 -->
+                    <div class="main-column main-fashion-column-left main-column-left main-fashion-column">  </div>
+                    <!-- 第二列 -->
+                    <div class="main-column main-fashion-column-right main-column-right main-fashion-column"></div>
+
+                    <!-- -------------------------------------------- -->
+                    <!-- 彩妆显示框 -->
+                    <!-- 第一列 -->
+                    <div class="main-column main-makeup-column-left main-column-left main-makeup-column">  </div>
+                    <!-- 第二列 -->
+                    <div class="main-column main-makeup-column-right main-column-right main-makeup-column"></div>
+                    
+                    <!-- -------------------------------------------- -->
+                    <!-- 高效显示框 -->
+                    <!-- 第一列 -->
+                    <div class="main-column main-efficient-column-left main-column-left main-efficient-column">  </div>
+                    <!-- 第二列 -->
+                    <div class="main-column main-efficient-column-right main-column-right main-efficient-column"></div>
+
+                    <!-- -------------------------------------------- -->
+                    <!-- 护肤显示框 -->
+                    <!-- 第一列 -->
+                    <div class="main-column main-skincare-column-left main-column-left main-skincare-column">  </div>
+                    <!-- 第二列 -->
+                    <div class="main-column main-skincare-column-right main-column-right main-skincare-column"></div>
+
+
+                <!-- 底部切换tab栏 -->
+                <!-- <div class="main-bottom"> -->
+                    <!-- 内部包裹盒子 -->
+                    <!-- <div class="main-bottom-box">
+                        <div class="main-bottom-tab main-tab-current  TO-main">
+                            <div class="main-tab-icon iconfont main-tab-current">&#xe6dd;</div>
+                            <div class="main-tab-word main-tab-current">&nbsp;&nbsp;&nbsp;首页</div>
+                        </div>
+                        <div class="main-bottom-tab To-mynews">
+                            <div class="main-tab-icon iconfont">&#xe614;</div>
+                            <div class="main-tab-word">我的消息</div>
+                        </div>
+                        <div class="main-bottom-tab To-person-center">
+                            <div class="main-tab-icon iconfont">&#xe626;</div>
+                            <div class="main-tab-word">个人中心</div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+        <!-- 写文章页面 -->
+        <div class="writePage Thepage">
+            <div class="writePage-center">
+                <!-- 顶部返回按钮 -->
+                <div class="writePage-back iconfont">&#xe62b;</div>
+                <form action="#" id="write-form" method="post" enctype="multipart/form-data" >
+                <!-- 下方添加图片列表 -->
+                <div class="writePage-addPic">
+                    <!-- <div class="writePage-Pic"><img src="" alt=""><a index="" class="deletePic-btn iconfont">&#xe668;</a></div> -->
+                    <!-- 添加按钮 -->
+                    <div class="addPicBtn iconfont">&#xe727;<input type="file" name="images" id="writePage-Picfile" multiple="multiple" ></div>
+                </div>
+                <!-- 标题和内容输入框 -->
+                    <div class="writePage-wordbox">
+                        <!-- 标题 -->
+                        <input type="text" id="writePage-title" name="title" placeholder="填写标题会有更多赞哦~">
+                        <!-- 内容 -->
+                        <textarea name="content" id="writePage-content" cols="47" rows="7" placeholder="添加正文"></textarea>
+                        <!-- 下方添加话题Tag -->
+                        <div class="writePage-Tagbox">
+                            <div class="addTag"># 话题</div>
+                            <div>@ 用户</div>
+                            <br>
+                            <div id="tagword"></div>
+                        </div>
+                    </div>
+                    <!-- 下方提交按钮 -->
+                    <div class="submit-writePage">
+                        <!-- <div class="submit-word">发布笔记</div> -->
+                        <input type="submit" class="writePageBtn" value="发布笔记">
+                    </div>
+                </form>
+                <!-- 点击#话题后弹出的Tag添加框 -->
+                <div class="addTagBox">
+                    <input type="text" id="addTagBox-ipt" placeholder="请输入要添加的Tag">
+                    <div class="addTagBox-cancle">取消</div>
+                    <div class="addTagBox-determine">确定</div>
+                </div>
+
+                <!-- 点击#话题后弹出的遮盖层 -->
+                <div class="addTag-background"></div>
+            </div>
+        </div>
+
+        <!-- 文章详情页面 -->
+        <div class="article-details Thepage">
+            <div class="article-details-container">
+                <!-- 顶部返回多个按钮和头像用户名的父盒子 -->
+                <div class="article-details-topbox">
+                    <!-- 返回按钮 -->
+                    <div class="article-details-back iconfont">&#xe62b;</div>
+                    <!-- 头像和用户名 -->
+                    <div class="article-details-avatarAndnickname">
+                        <div class="article-details-avatar"><img src="" alt=""></div>
+                        <div class="article-details-nickname"></div>
+                    </div>
+                    <!-- 关注按钮 -->
+                    <div class="article-details-followBtn"></div>
+                    <!-- 分享按钮 -->
+                    <div class="article-details-shareBtn iconfont">&#xe6a5;</div>
+                </div>
+                    <!-- 下方大框 -->
+                <div class="article-details-bottomBox">
+                    <!-- 标题框 -->
+                    <div class="article-details-title"></div>
+                    <!-- 内容框 -->
+                    <div class="article-details-content"></div>
+                    <!-- tag -->
+                    <div class="article-details-Tag">#tag</div>
+                    <!-- 下方日期和不喜欢按钮 -->
+                    <div class="article-details-dateAndunlike">
+                        <!-- 日期 -->
+                        <div class="article-details-date">2-8</div>
+                        <!-- 不喜欢按钮 -->
+                        <div class="article-details-unlike iconfont">&#xe758;&nbsp;不喜欢</div>
+                    </div>
+                </div>
+
+                <!-- 下方评论部分 -->
+                <div class="article-details-commentBox">
+                    <!-- 共几条评论 -->
+                    <div class="article-details-commentNum">共11条评论</div>
+                    <!-- 自身头像 -->
+                    <div class="article-details-userAvatarBox">
+                        <div class="article-details-userAvatar"><img src="" alt=""></div>
+                        <div class="article-details-commentBtn"><p>说点什么吧, 万一火了呢~</p></div>
+                    </div>
+
+                    <!-- 每条评论的父盒子 -->
+                    <!-- <div class="article-details-FirstCommentBoxFather"> -->
+                        <!-- 一级评论 -->
+                        <!-- <div class="article-details-FirstCommentBox">
+                            <div class="FirstComment-avatar"><img src="./img/测试头像1.jpg" alt=""></div>
+                            <div class="FirstComment-nickname">记阳</div>
+                            <div class="FirstComment-content">123456789456</div>
+                            <div class="FirstComment-date">2-14</div>
+                            <div class="FirstComment-LikesBtn iconfont">&#xe8ab;</div>
+                            <div class="FirstComment-LikesNum">1</div>
+                            <div class="FirstComment-Delete">删除</div>
+                        </div> -->
+                        <!-- 二级评论框父盒子 -->
+                        <!-- <div class="article-details-SecondCommentBoxFather">
+                            <div class="article-details-SecondCommentBox">
+                                <div class="SecondComment-avatar"><img src="./img/测试背景图1.jpg" alt=""></div>
+                                <div class="SecondComment-nickname">大大怪</div>
+                                <div class="SecondComment-contentBox"><p class="SecondComment-content">123456455 </p> <p class="SecondComment-date"> 2-11</p></div>
+                                <div class="SecondComment-LikesBtn iconfont">&#xe8ab;</div>
+                                <div class="SecondComment-LikesNum">1</div>
+                                <div class="SecondComment-Delete">删除</div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- 评论的最后 -->
+                    <div class="article-details-CommentEnd">- THE END -</div>
+                </div>
+
+            </div>
+
+            <!-- 底部评论框 -->
+            <div class="article-details-commentFixedBox">
+                <div class="article-details-commentFixedBtn"><p class="iconfont">&#xe67d; 说点什么...</p></div>
+                <!-- 点赞 -->
+                <div class="article-details-FixedBoxLikesBox">
+                    <div class="article-details-Likes iconfont">&#xe8ab;</div>
+                    <div class="article-details-LikeNum"></div>
+                </div>
+                <!-- 收藏 -->
+                <div class="article-details-FixedBoxCollectBox">
+                    <div class="article-details-Collect iconfont">&#xe601;</div>
+                    <div class="article-details-CollectNum"></div>
+                </div>
+                <!-- 评论 -->
+                <div class="article-details-FixedBoxCommentBox">
+                    <div class="article-details-Comment iconfont">&#xe614;</div>
+                    <div class="article-details-CommentNum">11</div>
+                </div>
+            </div>
+
+            <!-- 点击评论或二级评论出现的框 -->
+            <div class="article-details-commentFixedIptBox">
+                <div class="article-details-greyBox">
+                    <input type="text" class="article-details-commentIpt" placeholder="喜欢就给个评论支持一下~">
+                    <!-- 右侧两个icon -->
+                    <div class="article-details-iconOne iconfont">&#xe603;</div>
+                    <div class="article-details-iconTwo iconfont">&#xe606;</div>
+                </div>
+                <!-- 点击输入框后出现的发送按钮 -->
+                <div class="article-details-commentSend">发送</div>
+            </div>
+
+            <!-- 点击评论出现的遮盖层 -->
+            <div class="Comment-background"></div>
+
+            <!-- 轮播图模块 -->
+            <div class="article-details-rotatemapbox">
+                <!-- 轮播图ul -->
+                <div class="article-details-rotatemapul">
+                </div>
+                <div class="article-details-rotateLeftBtn"></div>
+                <div class="article-details-rotateRightBtn"></div>
+            </div>
+            <!-- 小圆点ul -->
+            <div class="article-details-circleul">
+            </div>
+        </div>
+
+        <!-- 搜索页面 -->
+        <div class="search Thepage">
+            <!-- 顶部返回按钮、搜索框和搜索按钮 -->
+            <div class="search-TopBox">
+                <!-- 返回按钮 -->
+                <div class="search-back"><p class="iconfont">&#xe62b;</p></div>
+                <!-- 搜索框 -->
+                <div class="search-box">
+                    <div class="search-icon iconfont">&#xe600;</div>
+                    <input type="text" class="search-ipt" placeholder="请输入内容">
+                </div>
+                <!-- 搜索按钮 -->
+                <div class="theSearch-Btn">搜索</div>
+            </div>
+            <!-- 下方文章，用户按钮 -->
+            <div class="search-TwoBtnBox">
+                <div class="search-Btn search-articleBtn searchBtn-current">文章</div>
+                <div class="search-Btn search-userBtn">用户</div>
+            </div>
+            <!-- 下方搜索文章的渲染列表 -->
+            <!-- 第一列 -->
+            <!-- <div class="main-SearchArticle-column-left main-column-left main-SearchArticle-column"></div> -->
+            <!-- 第二列 -->
+            <div class="main-SearchArticle-column-right main-column-right main-SearchArticle-column"></div>
+            
+            <!-- 用户的渲染列表 -->
+            <div class="search-userBox">
+                <!-- <div class="search-Box"> -->
+                    <!-- 头像 -->
+                    <!-- <div class="search-avatar"><img src="./img/测试头像1.jpg" alt=""></div> -->
+                    <!-- 昵称 -->
+                    <!-- <div class="search-nickname">记阳</div> -->
+                    <!-- 简介 -->
+                    <!-- <div class="search-word">哈哈哈</div> -->
+                    <!-- 关注按钮 -->
+                    <!-- <div class="search-starBtn">未关注</div> -->
+            </div>
+            <!-- 当搜索不到东西的时候出现的底部框 -->
+            <div class="search-bottom"><p>没有更多了</p></div>
+
+        </div>
+
+        <!-- -------------------------------------------- -->
+        <!-- 我的消息模块 -->
+        <div class="MyMessage Thepage">
+            <!-- 上面的盒子 -->
+            <div class="MyMessage-topBox">
+                <!-- 返回按钮，消息title和创建聊天 -->
+                <div class="MyMessage-titleAndCreate">
+                    <!-- 返回按钮 -->
+                    <div class="MyMessage-back iconfont">&#xe62b;</div>
+                    <!-- 消息 -->
+                    <div class="MyMessage-title">消息</div>
+                    <!-- 创建聊天 -->
+                    <div class="MyMessage-createChat">创建聊天</div>
+                </div>
+                <!-- 下方赞和收藏、新增关注、评论和@ -->
+                <div class="likeAndcollect-btn MyMessage-LAC">
+                    <div class="likeicon iconfont">&#xe60d;</div>
+                    <div class="likeword">赞和收藏</div>
+                </div>
+                <div class="follow-btn MyMessage-follow">
+                    <div class="followicon iconfont">&#xe69d;</div>
+                    <div class="followword">新增关注</div>
+                </div>
+                <div class="MyMessage-review-btn">
+                    <div class="reviewicon iconfont">&#xe63a;</div>
+                    <div class="reviewword">评论和@</div>
+                </div>
+            </div>
+            <!-- 下方聊天对象 -->
+            <div class="MyMessage-container">
+                <!-- <div class="MyChatBox">
+                    <div class="MyChat-avatar"><img src="./img/测试头像1.jpg" alt=""></div>
+                    <div class="MyChat-nickname">记阳</div>
+                    <div class="MyChat-word">哈哈哈哈哈哈</div>
+                    <div class="MyToChatPage iconfont">&#xe617;</div>
+                </div>
+                <div class="MyChatBox">
+                </div> -->
+            </div>
+        </div>
+
+        <!-- 收到的评论和@页面 -->
+        <div class="receiveReview Thepage">
+            <!-- 顶部返回按钮和@ -->
+            <div class="receiveReview-topBox">
+                <!-- 返回按钮 -->
+                <div class="receiveReview-back iconfont">&#xe62b;</div>
+                <!-- title -->
+                <div class="receiveReview-title">收到的评论和@</div>
+            </div>
+            <!-- 下方渲染盒子 -->
+            <div class="receiveReview-Father">
+                <!-- <div class="receiveReview-Box">
+                    <div class="receiveReview-avatar"><img src="./img/测试头像1.jpg" alt=""></div>
+                    <div class="receiveReview-nickname">记阳</div>
+                    <div class="receiveReview-word">评论了你的笔记</div>
+                    <div class="receiveReview-image"><img src="./img/测试背景图1.jpg" alt=""></div>
+                    <div class="receiveReview-detailBtn iconfont">&#xe617;</div>
+                </div>
+                <div class="receiveReview-Box"></div>
+                <div class="receiveReview-Box"></div>
+                <div class="receiveReview-Box"></div>
+                <div class="receiveReview-Box"></div> -->
+            </div>
+
+
+
+
+
+
+        </div>
+
+        <!-- 发私信页面 -->
+        <div class="SendprivateMsg Thepage">
+            <!-- 顶部返回按钮和title -->
+            <div class="SendprivateMsg-topBox">
+                 <!-- 返回按钮 -->
+                 <div class="SendprivateMsg-back iconfont">&#xe62b;</div>
+                 <!-- title -->
+                 <div class="SendprivateMsg-title">发私信</div>
+            </div>
+
+            <!-- 下方渲染互相关注的人可供发私信 -->
+            <div class="SendprivateMsg-Father">
+                <!-- <div class="SendprivateMsg-Box">
+                    <div class="SendprivateMsg-avatar"><img src="./img/测试头像1.jpg" alt=""></div>
+                    <div class="SendprivateMsg-nickname">记阳</div>
+                    <div class="ToChatPage-btn iconfont">&#xe617;</div>
+                </div>
+                <div class="SendprivateMsg-Box"></div>
+                <div class="SendprivateMsg-Box"></div>
+                <div class="SendprivateMsg-Box"></div> -->
+            </div>
+
+
+
+        </div>
+
+        <!-- 聊天对话页面 -->
+        <div class="ChatPage Thepage">
+            <!-- 顶部固定栏 -->
+            <div class="ChatPage-topBox">
+                <!-- 返回按钮 -->
+                <div class="ChatPage-back iconfont">&#xe62b;</div>
+                <div class="ChatPage-title">记阳</div>
+            </div>
+
+            <!-- 聊天背景图 -->
+            <img src="./img/测试背景图1.jpg" alt="" class="ChatBackground">
+            <!-- 聊天信息框 -->
+            <div class="ChatMsgBox">
+                <!-- 左边信息框（对方发送的信息） -->
+                <!-- <div class="LeftMsgBox">
+                    <div class="LeftMsg-avatar"><img src="./img/测试头像1.jpg" alt=""></div>
+                    <div class="LeftMsg">12345611</div>
+                    <div class="Lefttriangle"></div>
+                </div> -->
+                <!-- 右边信息框（自己发送的信息） -->
+                <!-- <div class="RightMsgBox">
+                    <div class="RightMsg-avatar"><img src="./img/测试背景图1.jpg" alt=""></div>
+                    <div class="RightMsg">12345611哈哈哈哈</div>
+                    <div class="Righttriangle"></div>
+                </div> -->
+            </div>
+
+
+
+            <!-- 底部固定栏 -->
+            <div class="ChatPage-bottom">
+                <!-- 输入框 -->
+                <input type="text" class="ChatPage-ipt" placeholder="请输入内容">
+                <!-- 发送按钮 -->
+                <div class="MsgSendBtn">发送</div>
+            </div>
+
+        </div>
+
+
+
+        <!-- --------------------------------------------- -->
+
+        <!-- 个人中心模块 -->
+        <div class="person-center Thepage">
+            <div class="person-container">
+                <div class="person-logout-father">
+                    <!-- 退出登录按钮 -->
+                    <div class="logout-btn"><p class=" iconfont">&#xe6a5;</p></div>
+                    <!-- 个人主页返回按钮 -->
+                    <div class="PCback-btn"><p class=" iconfont">&#xe62b;</p></div>
+                    <!-- 右上角按钮 -->
+                    <div class="person-share-btn"><p class=" iconfont">&#xe61c;</p></div>
+                </div>
+                <!-- 下方头像和用户名 -->
+                <div class="avator-username-box">
+                    <!-- 头像 -->
+                    <div class="personal-avator">
+                        <img src="" alt="">
+                    </div>
+                    <!-- 用户名 -->
+                    <div class="personal-username">123456</div>
+                </div>
+                <!-- 下方多个按钮的父盒子 -->
+                <div class="person-btnbox">
+                    <!-- 关注、粉丝、点赞与收藏按钮盒子 -->
+                    <div class="person-btnbox-left">
+                        <div class="follow-btn person-btnboxone">
+                            <div class="follow-quantity">5</div>
+                            <div class="follow-word">关注</div>
+                        </div>
+                        <div class="fans-btn person-btnboxone">
+                            <div class="fans-quantity">4</div>
+                            <div class="fans-word">粉丝</div>
+                        </div>
+                        <div class="likeAndcollect-btn person-btnboxone">
+                            <div class="likeAndcollect-quantity">7</div>
+                            <div class="likeAndcollect-word">获赞与收藏</div>
+                        </div>
+                    </div>
+                    <!-- 编辑资料按钮 -->
+                    <div class="editdata-btn">编辑资料</div>
+                    <!-- 发消息按钮 -->
+                    <div class="sendMessage-btn">发消息</div>
+                </div>
+                <!-- 下方笔记、收藏、赞过 -->
+                <div class="person-btnbox-two">
+                    <div class="person-note-btn person-btntwo-current person-btnboxtwo">笔记</div>
+                    <div class="person-collect-btn person-btnboxtwo">收藏</div>
+                    <div class="hadliked-btn person-btnboxtwo">赞过</div>
+                </div>
+                <!-- 笔记的文章储存盒子 -->
+                <!-- 第一列 -->
+                <div class="main-myArticle-column-left main-column-left main-myArticle-column">  </div>
+                <!-- 第二列 -->
+                <div class="main-myArticle-column-right main-column-right main-myArticle-column"></div>
+
+                <!-- 收藏的储存盒子 -->
+                <!-- 第一列 -->
+                <!-- <div class="main-myCollect-column-left main-column-left main-myCollect-column">  </div> -->
+                <!-- 第二列 -->
+                <div class="main-myCollect-column-right main-column-right main-myCollect-column"></div>
+
+                <!-- 赞过的文章的储存盒子 -->
+                <!-- 第一列 -->
+                <!-- <div class="main-myLiked-column-left main-column-left main-myLiked-column">  </div> -->
+                <!-- 第二列 -->
+                <div class="main-myLiked-column-right main-column-right main-myLiked-column"></div>
+
+                
+            </div>
+        </div>
+
+        <!-- 关注的人页面 -->
+        <div class="follow-person Thepage">
+            <!-- 顶部关注的人和返回按钮 -->
+            <div class="follow-person-top">
+                关注的人
+                <!-- 返回按钮 -->
+                <div class="follow-person-back iconfont">&#xe62b;</div>
+            </div>
+            <!-- 下方渲染关注的人盒子 -->
+            <div class="follow-person-Father">
+                <!-- <div class="follow-person-box">
+                    <div class="follow-person-avatar"><img src="./img/测试头像1.jpg" alt=""></div>
+                    <div class="follow-person-nickname">记阳</div>
+                    
+                    <div class="follow-person-followBtn">已关注</div>
+                </div>
+                <div class="follow-person-box"></div>
+                <div class="follow-person-box"></div> -->
+            </div>
+        </div>
+        <!-- 粉丝页面 -->
+        <div class="fans-Page Thepage">
+            <!-- 顶部粉丝和返回按钮 -->
+            <div class="fans-Page-top">
+                粉丝
+                <!-- 返回按钮 -->
+                <div class="fans-Page-back iconfont">&#xe62b;</div>
+            </div>
+            <!-- 下方渲染粉丝盒子 -->
+            <div class="fans-Father">
+                <!-- <div class="fans-box">
+                    <div class="fans-avatar"><img src="./img/测试头像1.jpg" alt=""></div>
+                    <div class="fans-nickname">记阳</div>
+                    <div class="fans-followBtn">未关注</div>
+                </div>
+                <div class="fans-box"></div>
+                <div class="fans-box"></div>
+                <div class="fans-box"></div> -->
+            </div>
+
+
+
+
+        </div>
+        <!-- 获赞与收藏页面 -->
+        <div class="belikedAndcollected-Page Thepage">
+            <!-- 顶部获赞与收藏和返回按钮 -->
+            <div class="beLAC-top">
+                获赞与收藏
+                <!-- 返回按钮 -->
+                <div class="beLAC-back iconfont">&#xe62b;</div>
+            </div>
+            <!-- 下方获赞和收藏两个按钮 -->
+            <div class="beLacBtn-box">
+                <!-- 获赞 -->
+                <div class="beLiked-Btn LACbtn-current">获赞</div>
+                <!-- 收藏 -->
+                <div class="beCollected-Btn">收藏</div>
+            </div>
+
+            <!-- 获赞的笔记渲染盒子 -->
+            <div class="beLiked-Father">
+                <!-- <div class="beLiked-Box">
+                    <div class="beLiked-avatar"><img src="./img/测试头像1.jpg" alt=""></div>
+                    <div class="beLiked-nickname">记阳</div>
+                    <div class="beLiked-word">赞了你的笔记</div>
+                    <div class="beLiked-image"><img src="./img/测试背景图1.jpg" alt=""></div>
+                    <div class="beLiked-detailsBtn iconfont">&#xe617;</div>
+                </div>
+                <div class="beLiked-Box"></div>
+                <div class="beLiked-Box"></div> -->
+            </div>
+            <!-- 收藏的笔记渲染盒子 -->
+            <!-- <div class="beCollected-Father"> -->
+                <!-- <div class="beCollected-Box">
+                    <div class="beCollected-avatar"><img src="./img/测试头像1.jpg" alt=""></div>
+                    <div class="beCollected-nickname">记阳</div>
+                    <div class="beCollected-word">赞了你的笔记</div>
+                    <div class="beCollected-image"><img src="./img/测试背景图1.jpg" alt=""></div>
+                    <div class="beCollected-detailsBtn iconfont">&#xe617;</div>
+                </div>
+                <div class="beCollected-Box"></div>
+                <div class="beCollected-Box"></div> -->
+            <!-- </div> -->
+
+
+            <!-- 收藏的笔记渲染盒子 -->
+
+        </div>
+
+        <!-- 编辑资料页面 -->
+        <div class="edit-data Thepage">
+            <div class="edit-data-container">
+                <!-- 返回按钮和编辑资料title -->
+                <div class="edit-data-top">
+                    <!-- 返回按钮 -->
+                    <div class="data-edit-back iconfont">&#xe62b;</div>
+                    <!-- title -->
+                    <div class="edit-data-title">编辑资料</div>
+                </div>
+                <!-- 头像设置框 -->
+                <div class="edit-data-avatorbox">
+                    <div class="edit-data-avator">
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <!-- 名字 -->
+                <div class="edit-data-box edit-data-nickname">
+                    <div class="edit-data-left">名字</div>
+                    <div class="edit-data-right edit-data-nickname-word"></div>
+                    <div class="edit-data-btn iconfont edit-data-nickname-btn">&#xe617;</div>
+                </div>
+                <!-- 性别 -->
+                <div class="edit-data-box edit-data-gender">
+                    <div class="edit-data-left">性别</div>
+                    <div class="edit-data-right edit-data-gender-word"></div>
+                    <div class="edit-data-btn iconfont edit-data-gender-btn">&#xe617;</div>
+                </div>
+                <!-- 生日 -->
+                <div class="edit-data-box edit-data-birthday">
+                    <div class="edit-data-left">生日</div>
+                    <div class="edit-data-right edit-data-birthday-word"></div>
+                    <div class="edit-data-btn iconfont edit-data-birthday-btn">&#xe617;</div>
+                </div>
+                <!-- 地区 -->
+                <div class="edit-data-box edit-data-area">
+                    <div class="edit-data-left">地区</div>
+                    <div class="edit-data-right edit-data-area-word"></div>
+                    <div class="edit-data-btn iconfont edit-data-area-btn">&#xe617;</div>
+                </div>
+                <!-- 简介 -->
+                <div class="edit-data-box edit-data-description">
+                    <div class="edit-data-left">简介</div>
+                    <div class="edit-data-right edit-data-description-word"></div>
+                    <div class="edit-data-btn iconfont edit-data-description-btn">&#xe617;</div>
+                </div>
+                <!-- 背景图 -->
+                <div class="edit-data-backgroundPic-box">
+                    <div class="edit-data-bgpleft">背景图</div>
+                    <div class="edit-data-bgpright">
+                        <img src="" alt="">
+                    </div>
+                    <div class="edit-data-backgroundPic-btn iconfont">&#xe617;</div>
+                </div>
+
+
+                <!-- 点击>后弹出的信息修改框 -->
+                <!-- 姓名 -->
+                <div class="modify-infomation-Box modify-nickname">
+                    <input type="text" class="modify-infomation-ipt modify-nickname-ipt" placeholder="请输入昵称">
+                    <div class="modify-infomation-cancle">取消</div>
+                    <div class="modify-infomation-determine modify-nickname-detbtn">确定</div>
+                </div>
+                <!-- 性别 -->
+                <div class="modify-infomation-Box modify-gender">
+                    <input type="text" class="modify-infomation-ipt modify-gender-ipt" placeholder="请输入性别">
+                    <div class="modify-infomation-cancle">取消</div>
+                    <div class="modify-infomation-determine modify-gender-detbtn">确定</div>
+                </div>
+                <!-- 生日 -->
+                <div class="modify-infomation-Box modify-birthday">
+                    <input type="text" class="modify-infomation-ipt modify-birthday-ipt" placeholder="请输入生日">
+                    <div class="modify-infomation-cancle">取消</div>
+                    <div class="modify-infomation-determine modify-birthday-detbtn">确定</div>
+                </div>
+                <!-- 地区 -->
+                <div class="modify-infomation-Box modify-area">
+                    <input type="text" class="modify-infomation-ipt modify-area-ipt" placeholder="请输入地区">
+                    <div class="modify-infomation-cancle">取消</div>
+                    <div class="modify-infomation-determine modify-area-detbtn">确定</div>
+                </div>
+                <!-- 简介 -->
+                <div class="modify-infomation-Box modify-description">
+                    <input type="text" class="modify-infomation-ipt modify-description-ipt" placeholder="请输入简介">
+                    <div class="modify-infomation-cancle">取消</div>
+                    <div class="modify-infomation-determine modify-description-detbtn">确定</div>
+                </div>
+
+
+                <!-- 点击头像后出现的修改框 -->
+                <div class="modify-Pic-Box">
+                    <!-- 头像预览 -->
+                    <div class="modify-avator-pre-father">
+                        <div class="modify-avator-preview">
+                            <img src="" alt="">
+                        </div>
+                        <input type="file" class="modify-avator-ipt">
+                    </div>
+                    <div class="modify-Pic-Box-son modify-infomation-cancle">取消</div>
+                    <div class="modify-Pic-Box-son modify-infomation-determine  modify-avator-detbtn">确定</div>
+                </div>
+
+                <!-- 点击背景图>后出现的修改框 -->
+                <div class="modify-bg-Box">
+                    <!-- 头像预览 -->
+                    <div class="modify-bg-pre-father">
+                        <div class="modify-bg-preview">
+                            <img src="" alt="">
+                        </div>
+                        <input type="file" class="modify-bg-ipt">
+                    </div>
+                    <div class="modify-bg-Box-son modify-infomation-cancle">取消</div>
+                    <div class="modify-bg-Box-son modify-infomation-determine  modify-bg-detbtn">确定</div>
+                </div>
+
+
+
+
+
+
+
+                <!-- 点击>后弹出的遮盖层 -->
+                <div class="modify-infomation-background"></div>
+
+
+            </div>
+        </div>
+
+        <!-- 底部切换tab栏 -->
+        <div class="main-bottom">
+            <!-- 内部包裹盒子 -->
+            <div class="main-bottom-box">
+                <div class="main-bottom-tab To-main  main-tab-current">
+                    <div class="main-tab-icon iconfont">&#xe6dd;</div>
+                    <div class="main-tab-word main-tab-current">&nbsp;&nbsp;&nbsp;首页</div>
+                </div>
+                <div class="main-bottom-tab To-mynews">
+                    <div class="main-tab-icon iconfont">&#xe614;</div>
+                    <div class="main-tab-word">我的消息</div>
+                </div>
+                <div class="main-bottom-tab To-person-center">
+                    <div class="main-tab-icon iconfont">&#xe626;</div>
+                    <div class="main-tab-word">个人中心</div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+    <script src="./js/login.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/writePage.js"></script>
+    <script src="./js/person-center.js"></script>
+    <script src="./js/edit-data.js"></script>
+    <script src="./js/article-details.js"></script>
+    <script src="./js/follow-person.js"></script>
+    <script src="./js/fans-Page.js"></script>
+    <script src="./js/belikedAndcollected-Page.js"></script>
+    <script src="./js/search.js"></script>
+    <script src="./js/MyMessage.js"></script>
+    <script src="./js/receiveReview.js"></script>
+    <script src="./js/SendprivateMsg.js"></script>
+    <script src="./js/ChatPage.js"></script>
+</body> 
+</html>

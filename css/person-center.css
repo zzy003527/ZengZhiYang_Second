@@ -1,0 +1,259 @@
+/* 这是个人中心的css */
+.person-center {
+    display: none;
+}
+.person-container {
+    position: relative;
+    width: 425px;
+    /* height: 690px; */
+    margin: 0 auto;
+}
+
+/* 设置退出登录按钮 */
+.person-logout-father {
+    margin-top: 10px;
+    height: 40px;
+}
+.logout-btn {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.logout-btn .iconfont {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* 设置个人主页返回按钮 */
+.PCback-btn {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.PCback-btn .iconfont {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* 设置右上角分享按钮 */
+.person-share-btn {
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.person-share-btn .iconfont {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* ----------------------------------------- */
+/* 设置头像和用户名的父盒子 */
+.avator-username-box {
+    position: relative;
+    height: 89px;
+    width: 100%;
+}
+
+/* 头像 */
+.personal-avator {
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    height: 89px;
+    width: 89px;
+    border-radius: 44.5px;
+}
+.personal-avator>img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    height: 89px;
+    width: 89px;
+}
+
+/* 用户名 */
+.personal-username {
+    position: absolute;
+    top: 50%;
+    left: 110px;
+    
+    width: 70%;
+    height: 35%;
+
+    font-size: 22px;
+    transform: translate(0,-50%);
+}
+
+
+/* ---------------------------------------------------------- */
+/* 下方多个按钮的父盒子 */
+.person-btnbox {
+    position: relative;
+    height: 55px;
+    width: 100%;
+    margin-top: 35px;
+}
+
+/* 关注、粉丝、点赞与收藏按钮盒子 */
+.person-btnbox-left {
+    display: flex;
+    justify-content: space-between;
+
+    width: 56%;
+    height: 100%;
+
+    color: #999999;
+}
+
+.person-btn-current {
+    color: #a062d4;
+}
+
+.person-btnbox-left>div {
+    position: relative;
+    width: 34%;
+    transition: .3s all;
+}
+
+/* 关注 */
+.follow-quantity,
+.fans-quantity
+{
+    position: absolute;
+    left: 50%;
+    top: 0px;
+
+    font-size: 20px;
+    transform: translate(-50%,0);
+}
+.follow-word ,
+.fans-word
+{
+    position: absolute;
+    top: 25px;
+    left: 29%;
+
+    font-size: 14px;
+}
+
+.likeAndcollect-quantity {
+    position: absolute;
+    left: 50%;
+    top: 0px;
+
+    font-size: 20px;
+    transform: translate(-50%,0);
+}
+.likeAndcollect-word {
+    position: absolute;
+    top: 25px;
+    left: 10%;
+
+    font-size: 14px;
+}
+
+/* 设置编辑资料按钮 */
+.editdata-btn {
+    display: block;
+    position: absolute;
+    right: 10%;
+    top: 44%;
+
+    width: 20%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid black;
+
+    line-height: 30px;
+    text-align: center;
+    transform: translate(0,-50%);
+}
+
+.sendMessage-btn {
+    display: none;
+    position: absolute;
+    right: 10%;
+    top: 44%;
+
+    width: 20%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid black;
+
+    line-height: 30px;
+    text-align: center;
+    transform: translate(0,-50%);
+}
+
+
+/* ---------------------------------------------------------- */
+/* 下方笔记、收藏、赞过 */
+.person-btnbox-two {
+    display: flex;
+    justify-content: space-around;
+
+    width: 100%;
+    height: 45px;
+    margin-top: 15px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.person-btnbox-two>div {
+    width: 10%;
+    height: 91%;
+
+    line-height: 42px;
+    text-align: center;
+    font-size: 20px;
+    transition: .3s all;
+}
+
+.person-btntwo-current {
+    color: #a062d4;
+    border-bottom: 3px solid #a062d4;
+}
+
+/* 设置下方笔记，收藏等文章列表 */
+.person-center .main-column {
+    margin-top: 0px;
+}
+
+/* ------------------------------------------------------------ */
+.main-myArticle-column,
+.main-myCollect-column,
+.main-myLiked-column {
+    margin-top: 0px;
+}
+
+
+/* 笔记的展示框 */
+.main-myArticle-column {
+    display: block;
+}
+
+/* 我的收藏的展示框 */
+.main-myCollect-column {
+    display: block;
+}
+
+/* 我赞过的展示框 */
+.main-myLiked-column {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+

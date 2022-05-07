@@ -1,0 +1,108 @@
+/* 发私信页面的css */
+.SendprivateMsg {
+    display: none;
+}
+
+
+/* 顶部返回按钮和title */
+.SendprivateMsg-topBox {
+    position: relative;
+    width: 100%;
+    height: 45px;
+    border-bottom: 1px solid #eee;
+}
+
+/* 返回按钮 */
+.SendprivateMsg-back {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+.SendprivateMsg-topBox .iconfont {
+    color: #333;
+    font-size: 20px;
+}
+
+/* title */
+.SendprivateMsg-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 18px;
+}
+
+
+/* ------------------------------------------------------------ */
+/* 下方渲染互相关注的人可供发私信 */
+.SendprivateMsg-Father {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+}
+
+.SendprivateMsg-Box {
+    position: relative;
+    width: 400px;
+    height: 70px;
+    margin: 0px 13px 10px 20px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+
+/* 头像 */
+.SendprivateMsg-avatar {
+    overflow: hidden;
+    position: absolute;
+    left: 10px;
+    bottom: 13px;
+
+    width: 38px;
+    height: 38px;
+    border-radius: 19px;
+}
+.SendprivateMsg-avatar img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    width: 38px;
+    height: 38px;
+}
+
+/* 昵称 */
+.SendprivateMsg-nickname {
+    position: absolute;
+    left: 60px;
+    bottom: 22px;
+
+    font-size: 17px;
+}
+
+/* 进入聊天界面的按钮 */
+.ToChatPage-btn {
+    position: absolute;
+    bottom: 19px;
+    right: 3px;
+}
+.SendprivateMsg-Box .iconfont{
+    color: #999;
+    font-size: 28px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

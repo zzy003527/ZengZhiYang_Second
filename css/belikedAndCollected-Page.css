@@ -1,0 +1,261 @@
+/* 这是获赞与收藏页面的css */
+.belikedAndcollected-Page {
+    display: none;
+}
+
+
+
+/* 顶部关注的人title和返回按钮 */
+.beLAC-top {
+    position: relative;
+    width: 100%;
+    height: 40px;
+
+    line-height: 40px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.beLAC-back {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+
+/* 下方获赞和收藏两个按钮 */
+.beLacBtn-box {
+    position: relative;
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+}
+
+.beLiked-Btn {
+    position: absolute;
+    left: 95px;
+
+    height: 38px;
+
+    line-height: 40px;
+    font-size: 18px;
+    transition: all 0.3s;
+}
+
+.beCollected-Btn {
+    position: absolute;
+    right: 95px;
+
+    height: 38px;
+
+    line-height: 40px;
+    font-size: 18px;
+    transition: all 0.3s;
+}
+
+.LACbtn-current {
+    color: #a062d4;
+    border-bottom: 3px solid #a062d4;
+}
+
+/* --------------------------------------------------- */
+/* 获赞的笔记的盒子 */
+.beLiked-Father {
+    display: block;
+    position: relative;
+    top: 15px;
+
+    width: 425px;
+    height: 540px;
+
+    margin: 0 auto;
+    border-top: 2px solid #eee;
+}
+
+.beLiked-Box {
+    position: relative;
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+}
+
+/* 头像 */
+.beLiked-avatar {
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    width: 38px;
+    height: 38px;
+    border-radius: 19px;
+
+}
+.beLiked-avatar img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    width: 38px;
+    height: 38px;
+}
+
+/* 昵称 */
+.beLiked-nickname {
+    position: absolute;
+    left: 50px;
+    top: 10px;
+
+    font-size: 17px;
+    font-weight: 500;
+}
+
+/* 文字 */
+.beLiked-word {
+    position: absolute;
+    left: 50px;
+    top: 32px;
+
+    color: #999;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* 右边图片 */
+.beLiked-image {
+    overflow: hidden;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    width: 40px;
+    height: 40px;
+}
+.beLiked-image img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    width: 40px;
+    height: 40px;
+}
+
+/* 点击进入文章详情按钮 */
+.beLiked-detailsBtn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+.beLiked-Father .iconfont {
+    font-size: 25px;
+    color: #999;
+}
+
+/* --------------------------------------------------- */
+/* 收藏的笔记的盒子 */
+.beCollected-Father {
+    display: block;
+    position: relative;
+    top: 15px;
+
+    width: 425px;
+    height: 540px;
+
+    margin: 0 auto;
+    border-top: 2px solid #eee;
+}
+
+.beCollected-Box {
+    position: relative;
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+}
+
+/* 头像 */
+.beCollected-avatar {
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    width: 38px;
+    height: 38px;
+    border-radius: 19px;
+
+}
+.beCollected-avatar img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    width: 38px;
+    height: 38px;
+}
+
+/* 昵称 */
+.beCollected-nickname {
+    position: absolute;
+    left: 50px;
+    top: 10px;
+
+    font-size: 17px;
+    font-weight: 500;
+}
+
+/* 文字 */
+.beCollected-word {
+    position: absolute;
+    left: 50px;
+    top: 32px;
+
+    color: #999;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* 右边图片 */
+.beCollected-image {
+    overflow: hidden;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    width: 40px;
+    height: 40px;
+}
+.beCollected-image img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    width: 40px;
+    height: 40px;
+}
+
+/* 点击进入文章详情按钮 */
+.beCollected-detailsBtn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+.beCollected-Father .iconfont {
+    font-size: 25px;
+    color: #999;
+}
+
+
+
+
+
+
+
+

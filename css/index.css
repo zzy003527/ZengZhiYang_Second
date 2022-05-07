@@ -1,0 +1,27 @@
+/* 整体配置 */
+/* 消除默认margin和padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+/* 双伪元素清除法解决高度塌陷问题的clearfix */
+.clearfix::before,
+.clearfix::after {
+    content:'';
+    display:table;
+}
+.clearfix::after {
+    clear: both;
+}
+/* 使主题部分居中 */
+.w {
+    width: 435px;
+    margin: 0 auto;
+}
+/* 清除li和a默认样式 */
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}

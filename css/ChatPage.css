@@ -1,0 +1,278 @@
+/* 这是聊天页面的css */
+.ChatPage {
+    position: relative;
+    display: none;
+}
+
+
+/* ------------------------ */
+/* 顶部固定栏 */
+.ChatPage-topBox {
+    position: fixed;
+    top: 0px;
+
+    height: 40px;
+    width: 435px;
+
+    background-color: white;
+    z-index: 100;
+}
+
+
+/* 返回按钮 */
+.ChatPage-back {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+.ChatPage-topBox .iconfont {
+    color: #333;
+    font-size: 20px;
+}
+
+/* title */
+.ChatPage-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 18px;
+}
+
+/* ------------------------------------ */
+/* 底部固定栏 */
+.ChatPage-bottom {
+    position: fixed;
+    bottom: 0px;
+
+    height: 55px;
+    width: 435px;
+
+    background-color: #f3f3f3;
+    z-index: 100;
+}
+
+/* 输入框 */
+.ChatPage-ipt {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    /* 缩小到335（有发送按钮时） */
+    width: 405px;
+    /* width: 335px; */
+    height: 35px;
+    padding-left: 15px;
+    padding-top: 2px;
+    border-radius: 20px;
+
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: white;
+    z-index: 10;
+    transition: 0.5s;
+}
+.ChatPage-ipt::placeholder {
+    font-size: 18px;
+}
+
+/* 发送按钮 */
+.MsgSendBtn {
+    display: none;
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    width: 55px;
+    height: 35px;
+
+    text-align: center;
+    line-height: 35px;
+    border-radius: 18px;
+    color: white;
+    background-color: rgba(12, 132, 253, 0.521);
+    transition: 0.5s;
+}
+
+/* 背景图 */
+.ChatBackground {
+    /* position: absolute; */
+    position: fixed;
+    left: 0px;
+    top: 0px;
+
+    width: 435px;
+    height: 555px;
+    margin-top: 40px;
+    z-index: 5;
+}
+
+
+/* ------------------------------------------------ */
+/* 聊天信息框 */
+.ChatMsgBox {
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 55px;
+
+    background-color: skyblue;
+}
+
+
+/* 左边信息框 */
+.LeftMsgBox {
+    position: relative;
+
+    height: 60px;
+    width: 100%;
+
+    /* background-color: pink; */
+    z-index: 10;
+}
+
+.LeftMsg-avatar {
+    overflow: hidden;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+
+}
+.LeftMsg-avatar img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    width: 50px;
+    height: 50px;
+}
+
+/* 消息框 */
+.LeftMsg {
+    position: absolute;
+    left: 80px;
+    top: 50%;
+    transform: translate(0,-50%);
+    padding: 0px 10px;
+
+    height: 35px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 13px -1px #999;
+
+    line-height: 35px;
+    text-align: center;
+    background-color: white;
+}
+
+/* 消息框的三角形 */
+.Lefttriangle {
+    position: absolute;
+    left: 67px;
+    top: 23px;
+
+    width: 0px;
+    height: 0px;
+    border-width: 7px;
+    border-style: solid;
+    border-color:  transparent white transparent transparent;
+}
+
+
+
+/* ------------------------- */
+/* 右边信息框 */
+.RightMsgBox {
+    position: relative;
+    height: 60px;
+    width: 100%;
+
+    /* background-color: orange; */
+    z-index: 10;
+}
+
+/* 头像 */
+.RightMsg-avatar {
+    overflow: hidden;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0,-50%);
+
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+
+}
+.RightMsg-avatar img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    width: 50px;
+    height: 50px;
+}
+
+/* 消息框 */
+.RightMsg {
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translate(0,-50%);
+    padding: 0px 10px;
+
+    height: 35px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 13px -1px #999;
+
+    line-height: 35px;
+    text-align: center;
+    background-color: greenyellow;
+}
+
+/* 消息框的三角形 */
+.Righttriangle {
+    position: absolute;
+    right: 67px;
+    top: 23px;
+
+    width: 0px;
+    height: 0px;
+    border-width: 7px;
+    border-style: solid;
+    border-color:  transparent transparent transparent  greenyellow;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
