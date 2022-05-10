@@ -6,7 +6,6 @@
 $(".MyMessage-review-btn").on("click",function() {
     jump("receiveReview")
     $(".main-bottom").css("display","none")
-    console.log($(".receiveReview-Father").children("receiveReview-Box"));
     if($(".receiveReview-Father").children("receiveReview-Box").elements.length == 0) {
         renderReceiveReview(localStorage.getItem("userId"))
     } else {

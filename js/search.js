@@ -1,3 +1,74 @@
+// 防抖函数
+function debounce(func,wait,immediate) {
+    let timeout;
+    return function() {
+        let context = this;
+        let args = arguments;
+        clearTimeout(timeout);
+        // 立即执行
+        if(immediate) {
+            // 第一次进入的时候tiomeout为undefined，此时callNow为真
+            let callNow = !timeout;
+            //如果在wait内再次触发，则timeout还没等于null，也就是callNow为假，不会执行函数
+            //直到某次超过wait了，那么timeout等于null，callNow为真，最后会执行一次
+            timeout = setTimeout(() => {
+                timeout = null;
+            },wait)
+            if(callNow) { //第一次进入的时候callNow为真，立即执行一次
+                func.apply(context,args)
+            }
+        } else {
+            // 不会立即执行
+            timeout = setTimeout(function() {
+                func.apply(context,args)
+            },wait)
+        }
+    }
+}
+
+
+// 节流函数（时间戳）(点击瞬间触发)
+function throttle(func,wait) {
+    let context,args;
+    // 之前的时间戳
+    let previous = 0;
+    return  function() {
+        context = this;
+        args = arguments;
+        // 获取当前的时间戳
+        let now = new Date().valueOf()
+        if(now - previous > wait) {  // 因为第一次的now很大，所以会立即触发
+            // 立即执行
+            func.apply(context,args)
+            previous = now;
+        }
+    }
+}
+
+// ---------------------------
+// 节流函数（定时器）（点击延时触发）
+function _throttle(func,wait) {
+    let context,args,timeout;
+    return function() {
+        context = this;
+        args = arguments;
+        if (!timeout) {
+            timeout = setTimeout(() => { // 当第一次进入的时候，会在wait到点后触发，然后timeout为null，能再次进入，如果没到wait时间，timeout有值，就进不去
+                func.apply(context,args)
+                timeout = null;
+            },wait)
+        }
+    }
+}
+
+
+
+
+
+
+
+
+// -------------------------------------------------------------
 // 这是搜索页面的js
 
 // 点击返回按钮回到主页
@@ -179,8 +250,8 @@ function RenderSearchUser() {
 
 
 // -------------------------------------
-// 搜索按钮
-$(".theSearch-Btn").on("click",function() {
+
+function SearchEvent() {
     // 如果当前是在文章部分，那就发送搜索文章请求
     if($(".search-articleBtn").elements[0].classList.contains("searchBtn-current")) {
         // 当搜索框内不为空时，发送请求
@@ -209,8 +280,11 @@ $(".theSearch-Btn").on("click",function() {
             
         }
     }
-})
+}
 
+// 搜索按钮
+$(".theSearch-Btn").on("click",debounce(SearchEvent,300,true))
+// $(".theSearch-Btn").on("click",_throttle(SearchEvent,1500))
 
 
 // ---------------------------------------------------------------

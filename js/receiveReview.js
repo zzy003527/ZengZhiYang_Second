@@ -53,6 +53,7 @@ function renderReceiveReview(userId) {
             userId: userId
         }
     }).then((res) => {
+        console.log(res);
         for(let i = 0;i < res.like.length;i++) {
             let frag = CreateReceiveReviewBox(res.like[i])
             let box = $("<div></div>").addClass("receiveReview-Box")
@@ -72,7 +73,6 @@ $(".receiveReview").on("click",function(e) {
     let target = e.target
     // 点击到作者头像
     if(target.parentNode.classList.contains("receiveReview-avatar")) {
-        console.log(target.parentNode);
         // 跳转到作者的主页
         jumpL("person-center")
         localStorage.setItem("PersonBack",localStorage.getItem("nowPage"))
@@ -108,7 +108,6 @@ $(".receiveReview").on("click",function(e) {
 $(".receiveReview").on("click",function(e) {
     let target = e.target
     if(target.classList.contains("receiveReview-detailBtn")) {
-        console.log(target.getAttribute("articleId"));
         // 跳转到文章详情，并渲染
         jump("article-details")
         renderArticleDetails(target.getAttribute("articleId"))

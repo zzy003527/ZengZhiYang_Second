@@ -1,3 +1,34 @@
+// 防抖函数
+function debounce(func,wait,immediate) {
+    let timeout;
+    return function() {
+        let context = this;
+        let args = arguments;
+        clearTimeout(timeout);
+        // 立即执行
+        if(immediate) {
+            // 第一次进入的时候tiomeout为undefined，此时callNow为真
+            let callNow = !timeout;
+            //如果在wait内再次触发，则timeout还没等于null，也就是callNow为假，不会执行函数
+            //直到某次超过wait了，那么timeout等于null，callNow为真，最后会执行一次
+            timeout = setTimeout(() => {
+                timeout = null;
+            },wait)
+            if(callNow) { //第一次进入的时候callNow为真，立即执行一次
+                func.apply(context,args)
+            }
+        } else {
+            // 不会立即执行
+            timeout = setTimeout(function() {
+                func.apply(context,args)
+            },wait)
+        }
+    }
+}
+
+
+
+// -----------------------------------------------------------------
 // 这是登录页面的js
 // 总体跳转函数
 function jump(ToPage) {
@@ -13,10 +44,9 @@ function jumpL(ToPage) {
     let className = "." + ToPage;
     $(className).css("display","block")
 }
-
-
-// 为登录按钮绑定事件发送请求
-$("#loginform").on("submit",function(e) {
+// -------------------------------------------------------------
+// 登录函数
+function loginEvent(e) {
     //阻止默认提交行为
     e.preventDefault()
 
@@ -64,21 +94,10 @@ $("#loginform").on("submit",function(e) {
     }).catch((res) => {
         console.log(res);
     })
+}
 
 
-})
-
-
-
-
-
-
-
-
-
-
-
-
+$("#loginform").on("submit",debounce(loginEvent,300,true))
 
 
 

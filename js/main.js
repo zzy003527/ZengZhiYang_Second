@@ -1,6 +1,53 @@
 // 这是主页面main的js
 
 
+// -------------------------------------------------------
+// 懒加载的封装函数
+// 这是获取图片的函数
+function query(tag) {
+    return Array.from(document.getElementsByTagName(tag));
+}
+
+function lazyload() {
+    // IntersectionObserver的第一个参数是回调函数
+    var observer = new IntersectionObserver(
+        (changes) => {
+            changes.forEach((change) => {
+                // intersectionRatio是目标的可见比例，为1时完全可见，0时完全不可见
+            if (change.intersectionRatio > 0) {
+                //target是被观察的目标元素，是一个 DOM 节点对象
+                var img = change.target;
+                // 如果节点的thisSrc存在，那就把值赋给src
+                if(img.getAttribute("thisSrc")) {
+                    img.src = img.getAttribute("thisSrc");
+                }
+                // 停止观察
+                observer.unobserve(img);
+                }
+            })
+        }
+    )
+    query('img').forEach((item) => {
+        // 开始观察该元素
+        observer.observe(item);
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ----------------------------------------------------
 // 点击+跳转到writePage发文章页面
@@ -194,13 +241,6 @@ $(".To-mynews").on("click",function() {
 
 
 
-
-
-
-
-
-
-
 // ---------------------------------------------------------
 // 为顶部tab栏添加点击切换样式效果
 $(".main-top-tab").on("click",function() {
@@ -360,6 +400,112 @@ function mainBoxRightAdd(name,i,data) {
 // ---------------------------------------------------------
 // 渲染推荐页面
 
+// ----------------------------------------------------------------------
+// 推荐页面懒加载需要
+
+// -----------------------------------------------------
+// 获取用户完整信息(用在主页创建文档碎片)
+function RCgetUserfullInfo(authorId,avatarbox,nicknamebox) {
+    $().ajax({
+        type: "GET",
+        url: "http://175.178.193.182:8080/user/fullInfo",
+        data: {
+            userId: authorId
+        }
+    }).then((res) => {
+        
+        avatarbox.attr("src","./").attr("thisSrc",res.user.avatar)
+        nicknamebox.html(res.user.nickname)
+    }).catch((res) => {
+        console.log(res);
+    })
+}
+// 创建文档碎片
+function RCcreatebox(data) {
+    var likes = data.likes;
+    var title = data.title;
+
+    var frag = document.createDocumentFragment();
+    var img = $("<img/>")
+    if(data.images.length !== 0) {
+        img.attr("thisSrc",data.images[0]).attr("src","./")
+        frag.appendChild(img.elements[0])
+    }
+    
+    // 在标题为空的时候渲染不出来，所以要判断标题是否存在
+    var mcb = $("<div></div>").addClass("main-column-boxtitle")
+    if(title) {
+        mcb.html(title)
+    } else {
+        mcb.html("")
+    }
+   
+    var imga = $("<img/>")
+    var mca = $("<div></div>").addClass("main-column-avator").append(imga)
+    var mcn = $("<div></div>").addClass("main-column-nickname")
+
+    var heart = $("<div></div>").addClass("heart").addClass("iconfont").html("&#xe8ab;")
+    // 如果检测到该文章的点赞者有user，则将其颜色改为红色
+    let userId =localStorage.getItem("userId")
+    for(let i = 0;i < data.likerList.length;i++) {
+        if(data.likerList[i] == userId) {
+            heart.html("&#xe60d;")
+            heart.css("color","red")
+            break;
+        } else {
+            heart.html("&#xe8ab;")
+            heart.css("color","black")
+        }
+    }
+    
+    
+    var clnum = $("<div></div>").addClass("column-likenum")
+    if(likes === 0) {
+        clnum.html("0")
+    } else {
+        clnum.html(likes)
+    }
+    var mcl = $("<div></div>").addClass("main-column-like").append(heart).append(clnum)
+    var div = $("<div></div>").addClass("main-column-bottom").append(mcb).append(mca).append(mcn).append(mcl)
+    RCgetUserfullInfo(data.authorId,imga,mcn)
+
+    frag.appendChild(div.elements[0])
+    return frag;
+}
+
+
+
+
+// 目标主页盒子左侧添加盒子
+// name为主盒子名字，i为index的值，data为要传入的渲染的数据
+function RCmainBoxLeftAdd(name,i,data) {
+    let boxnameleft = ".main-" + name + "-column-left";
+    
+    let frag = RCcreatebox(data)
+    let div = $("<div></div>").addClass("main-column-box").attr("index",i).attr("articleId",data.articleId)
+    
+    div.elements[0].appendChild(frag)
+    
+    $(boxnameleft).append(div)
+}
+
+
+// 目标主页盒子右侧添加盒子
+function RCmainBoxRightAdd(name,i,data) {
+    let boxnameright = ".main-" + name + "-column-right";
+    let frag = RCcreatebox(data)
+    let div = $("<div></div>").addClass("main-column-box").attr("index",i).attr("articleId",data.articleId)
+    div.elements[0].appendChild(frag)
+    $(boxnameright).append(div)
+
+}
+
+
+
+
+// -------------------------------------------------------------------------
+
+
 // 比较左右两列盒子高度,返回较短的盒子
 function compareRecommendHeight() {
     var boxleft = ".main-recommend-column-left"
@@ -372,22 +518,57 @@ function compareRecommendHeight() {
 }
 
 
-function renderrecommend() {
+function Everenderrecommend(Rpages) {
     $().ajax({
         type: "GET",
-        url: "http://175.178.193.182:8080/article/getHomePage"
+        url: "http://175.178.193.182:8080/article/getHomePageTag",
+        data: {
+            tag: "推荐",
+            pages: Rpages
+        }
     }).then((res) => {
-        for(let i = 0;i < res.pages.推荐.length;i++) {           
+        console.log(res);
+        for(let i = 0;i < res.articles.length;i++) {           
             if(compareRecommendHeight() === 'left') {
-                mainBoxLeftAdd("recommend",i,res.pages.推荐[i])
+                RCmainBoxLeftAdd("recommend",i,res.articles[i])
             } else {
-                mainBoxRightAdd("recommend",i,res.pages.推荐[i]) 
+               RCmainBoxRightAdd("recommend",i,res.articles[i]) 
             }
         }
+        lazyload()
     }).catch((res) => {
         console.log(res);
     })
 }
+
+
+function renderrecommend() {
+    for(let i = 0;i < 10;i++) {
+        Everenderrecommend(i);
+    }
+}
+
+
+
+
+
+// function renderrecommend() {
+//     $().ajax({
+//         type: "GET",
+//         url: "http://175.178.193.182:8080/article/getHomePage"
+//     }).then((res) => {
+        // for(let i = 0;i < res.pages.推荐.length;i++) {           
+        //     if(compareRecommendHeight() === 'left') {
+        //         mainBoxLeftAdd("recommend",i,res.pages.推荐[i])
+        //     } else {
+        //         mainBoxRightAdd("recommend",i,res.pages.推荐[i]) 
+        //     }
+        // }
+//     }).catch((res) => {
+//         console.log(res);
+//     })
+// }
+
 //----------------------------------------------------------------------------
 // 渲染旅行页面
 // 创建文档碎片
@@ -753,10 +934,6 @@ $(".main-column").on("click",function(e) {
         renderUserAvatar()
     }
 })
-
-
-
-
 
 
 

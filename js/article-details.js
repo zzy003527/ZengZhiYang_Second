@@ -176,7 +176,7 @@ function CreateFirstCommentBox(data) {
     // 昵称
     var Fnickname = $("<div></div>").addClass("FirstComment-nickname")
     // 渲染头像和昵称
-    renderCommenterfullInfo(data.replyToUserId,img,Fnickname)
+    renderCommenterfullInfo(data.authorId,img,Fnickname)
     Favatar.append(img)
     
     // 内容
@@ -212,7 +212,7 @@ function CreateFirstCommentBox(data) {
       var FcommentBox = $("<div></div>").addClass("article-details-FirstCommentBox").append(Favatar).append(Fnickname).append(Fcontent).append(Fdate).append(Flikesbtn).append(Flikesnum).attr("reviewId",data.reviewId).attr("userId",data.replyToUserId)
 
     // 删除按钮(检测到评论者是自己才能删除评论)
-    if(data.replyToUserId == userId) {
+    if(data.authorId == userId) {
         var Fdelete = $("<div></div>").addClass("FirstComment-Delete").html("删除")
         FcommentBox.append(Fdelete)
     }
@@ -235,7 +235,7 @@ function CreateFirstCommentBox(data) {
             // 昵称
             let Snickname = $("<div></div>").addClass("SecondComment-nickname")
             // 渲染头像和昵称
-            renderCommenterfullInfo(data.reviewList[i].replyToUserId,img1,Snickname)
+            renderCommenterfullInfo(data.reviewList[i].authorId,img1,Snickname)
             Savatar.append(img1)
             
             // 内容
@@ -268,7 +268,7 @@ function CreateFirstCommentBox(data) {
             let SecondCommenteve = $("<div></div>").addClass("article-details-SecondCommentBox").append(Savatar).append(Snickname).append(Scontent).append(Slikesbtn).append(Slikesnum).attr("reviewId",data.reviewList[i].reviewId).attr("userId",data.reviewList[i].replyToUserId)
 
             // 删除按钮(看是否该评论由当前用户发布，若是，则可以删除)
-            if(data.reviewList[i].replyToUserId == userId) {
+            if(data.reviewList[i].authorId == userId) {
                 var Sdelete = $("<div></div>").addClass("SecondComment-Delete").html("删除")
                 SecondCommenteve.append(Sdelete)
             }
@@ -283,9 +283,6 @@ function CreateFirstCommentBox(data) {
     frag.appendChild(FcommentBox.elements[0])
     frag.appendChild(ScommentBox.elements[0])
     return frag;
-
-    
-    console.log(FcommentBox.elements[0]);
 }
 
 
@@ -569,8 +566,6 @@ function renderArticleDetails(articleId) {
             $(".article-details-CommentNum").html(res.article.reviews)
             $(".article-details-commentNum").html('共 ' + res.article.reviews + ' 条评论')
         }
-        
-        console.log(res);
     }).catch((res) => {
         console.log(res);
     })
@@ -604,7 +599,6 @@ function followPageAuthor() {
         renderPCfollow(localStorage.getItem("userId"))
 
         alert(res.msg)
-        console.log(res);
     }).catch((res) => {
         console.log(res);
     })
@@ -635,7 +629,6 @@ function cancleFollowPageAuthor() {
         renderPCfollow(localStorage.getItem("userId"))
         
         alert(res.msg)
-        console.log(res);
     }).catch((res) => {
         console.log(res);
     })
@@ -801,9 +794,9 @@ $(".Comment-background").on("click",function() {
 // 发布评论
 function postComment(parentReviewId) {
     // 准备数据
-    let replyToUserId = localStorage.getItem("userId")
+    let replyToUserId = localStorage.getItem("authorId")
     let replyToArticleId = localStorage.getItem("articleId")
-    let authorId = localStorage.getItem("authorId")
+    let authorId = localStorage.getItem("userId")
     let content = $(".article-details-commentIpt").elements[0].value
     var fd = new FormData();
     fd.append("replyToUserId",replyToUserId)
@@ -824,7 +817,6 @@ function postComment(parentReviewId) {
         // 重新渲染评论(要先把原来的都删了)
         $(".article-details-FirstCommentBoxFather").remove()
         renderDetailsComment(localStorage.getItem("articleId"))
-        console.log(res);
     }).catch((res) => {
         console.log(res);
     })
@@ -877,7 +869,7 @@ function CommentLikes(userId,reviewId) {
         url: "http://175.178.193.182:8080/review/like",
         data: fd
     }).then((res) => {
-        console.log(res);
+
     }).catch((res) => {
         console.log(res);
     })
@@ -894,7 +886,7 @@ function CommentLikesCancle(userId,reviewId) {
         url: "http://175.178.193.182:8080/review/unlike",
         data: fd
     }).then((res) => {
-        console.log(res);
+
     }).catch((res) => {
         console.log(res);
     })
@@ -963,7 +955,6 @@ function CommentRemove(reviewId) {
         $(".article-details-FirstCommentBoxFather").remove()
         renderDetailsComment(localStorage.getItem("articleId"))
         renderArticleDetails(localStorage.getItem("articleId"));
-        console.log(res);
     }).catch((res) => {
         console.log(res);
     })
