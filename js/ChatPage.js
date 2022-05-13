@@ -218,7 +218,7 @@ function  CreateLeftChatRecord(data,userId,receiverId) {
 
 
 // 获取聊天记录，渲染页面
-function renderChatRecord(userId,receiverId) {
+function renderChatRecord(userId,receiverId,page) {
     $().ajax({
         type: "GET",
         url: "http://175.178.193.182:8080/chat/getRecord",
@@ -228,20 +228,36 @@ function renderChatRecord(userId,receiverId) {
             page: 1
         }
     }).then((res) => {
-        for(let i = 0;i < res.newRecord.length;i++) {
-            // 如果userId等于当前用户，则加在右边，如果不等于，则加在左边
-            if(res.newRecord[i].userId == userId) {
-                let frag1 = CreateRightChatRecord(res.newRecord[i])
-                let Rbox = $("<div></div>").addClass("RightMsgBox")
-                Rbox.elements[0].appendChild(frag1)
-                $(".ChatMsgBox").append(Rbox)
-            } else if (res.newRecord[i].userId == receiverId) {
-                let frag2 = CreateLeftChatRecord(res.newRecord[i])
-                let Lbox = $("<div></div>").addClass("LeftMsgBox")
-                Lbox.elements[0].appendChild(frag2)
-                $(".ChatMsgBox").append(Lbox)
+        if(res.newRecord.length !== 0) {
+            for(let i = 0;i < res.newRecord.length;i++) {
+                // 如果userId等于当前用户，则加在右边，如果不等于，则加在左边
+                if(res.newRecord[i].userId == userId) {
+                    let frag1 = CreateRightChatRecord(res.newRecord[i])
+                    let Rbox = $("<div></div>").addClass("RightMsgBox")
+                    Rbox.elements[0].appendChild(frag1)
+                    $(".ChatMsgBox").append(Rbox)
+                } else if (res.newRecord[i].userId == receiverId) {
+                    let frag2 = CreateLeftChatRecord(res.newRecord[i])
+                    let Lbox = $("<div></div>").addClass("LeftMsgBox")
+                    Lbox.elements[0].appendChild(frag2)
+                    $(".ChatMsgBox").append(Lbox)
+                }
             }
         }
+        // for(let i = 0;i < res.newRecord.length;i++) {
+        //     // 如果userId等于当前用户，则加在右边，如果不等于，则加在左边
+        //     if(res.newRecord[i].userId == userId) {
+        //         let frag1 = CreateRightChatRecord(res.newRecord[i])
+        //         let Rbox = $("<div></div>").addClass("RightMsgBox")
+        //         Rbox.elements[0].appendChild(frag1)
+        //         $(".ChatMsgBox").append(Rbox)
+        //     } else if (res.newRecord[i].userId == receiverId) {
+        //         let frag2 = CreateLeftChatRecord(res.newRecord[i])
+        //         let Lbox = $("<div></div>").addClass("LeftMsgBox")
+        //         Lbox.elements[0].appendChild(frag2)
+        //         $(".ChatMsgBox").append(Lbox)
+        //     }
+        // }
         // 跳转到底部
         window.scroll(0,900);
     }).catch((res) => {
@@ -249,12 +265,21 @@ function renderChatRecord(userId,receiverId) {
     })
 }
 
+// function renderChatRecord(userId,receiverId) {
+//     for(let i = 3;i > 0;i--) {
+//         EverenderChatRecord(userId,receiverId,i);
+//     }
+// }
+
 // renderChatRecord(localStorage.getItem("userId"),8)
 
 
 
 
+// ------------------------------------------------------------------
+function charscroll() {
 
+}
 
 
 

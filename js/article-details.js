@@ -2,6 +2,8 @@
 
 // 点击返回按钮回到主页
 $(".article-details-back").on("click",function() {
+    // 将删除按钮隐藏
+    $(".article-details-deleteBtn").css("display","none")
     // 如果返回search的存储存在，那就返回search，否则再返回别的
     if(localStorage.getItem("searchArticle")) {
         jumpL("search")
@@ -71,67 +73,7 @@ $(".article-details-back").on("click",function() {
             $(".main-bottom").css("display","none")
         }
     }
-    // jump(localStorage.getItem("prePage"))
-    // if(localStorage.getItem("nowPage") === 'main') {
-    //     // 既然返回首页了那就把下方篮子的首页变紫色吧
-    //     $(".main-bottom").css("display","block")
-    //     $(".main-bottom-tab").removeClass("main-tab-current");
-    //     $(".main-bottom-tab").children(".main-tab-word").removeClass("main-tab-current")
-    //     $(".main-bottom-tab").get(0).addClass("main-tab-current")
-    //     $(".main-bottom-tab").get(0).children(".main-tab-word").addClass("main-tab-current")
-    // } else if (localStorage.getItem("nowPage") === 'person-center') {
-    //     // 既然返回个人中心了那就把下方篮子的个人中心变紫色吧
-    //     $(".main-bottom").css("display","block")
-    //     $(".main-bottom-tab").removeClass("main-tab-current");
-    //     $(".main-bottom-tab").children(".main-tab-word").removeClass("main-tab-current")
-    //     $(".main-bottom-tab").get(2).addClass("main-tab-current")
-    //     $(".main-bottom-tab").get(2).children(".main-tab-word").addClass("main-tab-current")
-    //     // 那就顺便重新渲染一下收藏和赞过的和我的文章吧（因为进到了别人的主页）
-    //     if($(".person-note-btn").elements[0].classList.contains("person-btntwo-current")) {
-    //         if($(".main-myArticle-column-left").elements.length === 0) {
-    //             var myArticleLeftbox = $("<div></div>")
-    //             myArticleLeftbox.addClass("main-column").addClass("main-myArticle-column-left").addClass("main-column-left").addClass("main-myArticle-column")
-    //             $(".main-myArticle-column-right").before(myArticleLeftbox)
-    //             // 如果是从头像点进来的，那就渲染头像的id，如果不是，那么attr自定义属性是null，渲染当前用户的
-    //             if($(".person-center").attr("TheRenderId") !== null) {
-    //                 rendermyAriticle($(".person-center").attr("TheRenderId"));
-    //             } else {
-    //                 rendermyAriticle(localStorage.getItem("userId"));
-    //             } 
-    //         }
-    //     }
 
-    //     if($(".person-collect-btn").elements[0].classList.contains("person-btntwo-current")) {
-    //         if($(".main-myCollect-column-left").elements.length === 0) {
-    //             var myCollectLeftbox = $("<div></div>")
-    //             myCollectLeftbox.addClass("main-column").addClass("main-myCollect-column-left").addClass("main-column-left").addClass("main-myCollect-column")
-    //             $(".main-myCollect-column-right").before(myCollectLeftbox)
-    //             // 如果是从头像点进来的，那就渲染头像的id，如果不是，那么attr自定义属性是null，渲染当前用户的
-    //             if($(".person-center").attr("TheRenderId") !== null) {
-    //                 renderMyCollect($(".person-center").attr("TheRenderId"));
-    //             } else {
-    //                 renderMyCollect(localStorage.getItem("userId"));
-    //             } 
-    //         } 
-    //     }
-
-    //     if($(".hadliked-btn").elements[0].classList.contains("person-btntwo-current")) {
-    //         if($(".main-myLiked-column-left").elements.length === 0) {
-    //             var myLikedLeftbox = $("<div></div>")
-    //             myLikedLeftbox.addClass("main-column").addClass("main-myLiked-column-left").addClass("main-column-left").addClass("main-myLiked-column")
-    //             $(".main-myLiked-column-right").before(myLikedLeftbox)
-    //             // 如果是从头像点进来的，那就渲染头像的id，如果不是，那么attr自定义属性是null，渲染当前用户的
-    //             if($(".person-center").attr("TheRenderId") !== null) {
-    //                 renderMyLiked($(".person-center").attr("TheRenderId"));
-    //             } else {
-    //                 renderMyLiked(localStorage.getItem("userId"));
-    //             } 
-    //         }
-    //     }
-    // } else if (localStorage.getItem("nowPage") === 'belikedAndcollected-Page') {
-    //     $(".main-bottom").css("display","none")
-    // }
-    
     
     localStorage.removeItem("articleId")
     localStorage.removeItem("authorId")
@@ -167,6 +109,7 @@ function renderCommenterfullInfo(commenterId,avatarbox,nicknamebox) {
 
 // 根据评论个数创建评论盒子（文档碎片）
 function CreateFirstCommentBox(data) {
+    console.log(data);
     var frag = document.createDocumentFragment();
 
     // 头像
@@ -303,6 +246,7 @@ function renderDetailsComment(articleId) {
             pages: pages
         }
     }).then((res) => {
+        console.log(res);
         // 循环渲染一级评论
         if(res.reviews !== undefined) {
             for(let i = 0;i < res.reviews.length;i++) {
@@ -502,10 +446,15 @@ function renderArticleDetails(articleId) {
             articleId: articleId
         }
     }).then((res) => {
+        console.log(res);
         // 渲染上方头像和用户名
         renderPageUserBaseInfo(res.article.authorId)
         // 渲染是否关注
         renderPageUserfullInfo(res.article.authorId)
+        // 如果文章主人是自己，那么显示删除文章按钮
+        if(res.article.authorId == localStorage.getItem("userId")) {
+            $(".article-details-deleteBtn").css("display","block")
+        }
         // 储存authodId和articleId供下方发送评论使用
         localStorage.setItem("articleId",articleId)
         localStorage.setItem("authorId",res.article.authorId)
@@ -1194,9 +1143,47 @@ $(".article-details").on("click",function(e) {
 })
 
 
+// ---------------------------------------------------------------
+// 删除文章
+
+// 发送删除文章请求
+function deleteArticle() {
+    // 准备数据
+    let fd = new FormData()
+    fd.append("articleId",localStorage.getItem("articleId"));
+    $().ajax({
+        type: "POST",
+        url: "http://175.178.193.182:8080/article/delete",
+        data: fd
+    }).then((res) => {
+        console.log(res);
+        alert(res.msg);
+    }).catch((res) => {
+        console.log(res);
+    })
+}
 
 
 
+$(".article-details-deleteBtn").on("click",function() {
+    $(".deleteAticleBox").css("display","block");
+    $(".deleteArticleBox-background").css("display","block");
+})
+
+$(".deleteAticleBox-cancle").on("click",function() {
+    $(".deleteAticleBox").css("display","none");
+    $(".deleteArticleBox-background").css("display","none");
+})
+
+// 点击确定，发送请求
+$(".deleteAticleBox-determine").on("click",function() {
+    $(".deleteAticleBox").css("display","none");
+    $(".deleteArticleBox-background").css("display","none");
+    deleteArticle();
+    // 手动调用返回按钮点击事件
+    let backBtn = document.querySelector(".article-details-back");
+    backBtn.click();
+})
 
 
 
